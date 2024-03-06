@@ -35,13 +35,13 @@ const sessionOptions = session({
     }
 });
 
-app.use(csurf());
 app.use(sessionOptions);
 app.use(flash());
 app.use(routes);
 app.use(express.json);
 app.use(express.static(path.join('public', 'assets')));
 app.use(helmet());
+app.use(csurf());
 app.use(checkCsurf);
 app.use(csurfAuth);
 
