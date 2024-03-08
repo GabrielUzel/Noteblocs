@@ -8,9 +8,10 @@ const flash = require('connect-flash');
 const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
-const csurf = require('csurf');
-
-const { checkCsurf, csurfAuth } = require('./src/middlewares');
+const csrf = require('csurf');
+const passport = require('passport');
+const { checkCsrf, csrfAuth } = require('./src/utils/middlewares');
+require('./src/loginSettings');
 
 const app = express();
 
@@ -35,16 +36,17 @@ const sessionOptions = session({
     }
 });
 
+app.use(express.json());
 app.use(routes);
 app.use(express.static('./public'));
-
-app.use(express.json);
 app.use(sessionOptions);
 app.use(flash());
 app.use(helmet());
-app.use(csurf());
-app.use(checkCsurf);
-app.use(csurfAuth);
+app.use(csrf());
+app.use(checkCsrf);
+app.use(csrfAuth);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');

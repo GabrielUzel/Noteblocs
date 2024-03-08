@@ -1,10 +1,10 @@
-exports.checkCsurf = (error, request) => {
+exports.checkCsrf = (error, request) => {
     if(error && error.code === 'EBADCSRFTOKEN') {
         return request.render('errorPage');
     }
 };
 
-exports.csurfAuth = (request, response, next) => {
+exports.csrfAuth = (request, response, next) => {
     response.locals.crsfToken = require.crsfToken();
     next();
 }
