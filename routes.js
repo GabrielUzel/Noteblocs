@@ -7,6 +7,6 @@ route.get('/', homeController.homePage);
 
 const loginController = require('./src/controllers/loginController');
 route.get('/login', loginController.loginPage);
-route.post('/login', passport.authenticate('local'));
+route.post('/login', passport.authenticate('local', { session : false }));
 
 module.exports = route;

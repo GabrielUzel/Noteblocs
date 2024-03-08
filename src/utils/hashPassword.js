@@ -5,5 +5,6 @@ exports.hashPassword = (password) => {
 }
 
 exports.comparePassword = (currentPassword, hashedPassword) => {
-    bcrypt.compareSync(currentPassword, hashedPassword);
+    return currentPassword === hashedPassword;
+    // bcrypt.compareSync(currentPassword, hashedPassword);
 }
