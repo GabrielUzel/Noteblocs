@@ -14,7 +14,8 @@
         <img src="/img/imagem_teste.jpg" alt="">
         <div class="form-container">
             <h1> Login </h1>
-            <form id="login-form" class="forms" action="/login" method="post">
+            <form id="login-form" class="forms" action="/login/enter" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
                 <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
                 <button type="submit">Login</button>

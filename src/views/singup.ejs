@@ -11,7 +11,8 @@
     <section id="signup-menu" class="form-menu">
         <div id="signup-container" class="form-container">
             <h1> Cadastre-se </h1>
-            <form id="signup-form" class="forms" action="/signup" method="post">
+            <form id="signup-form" class="forms" action="/signup/createUser" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <input id="username" name="username" type="text" placeholder="Username" autocomplete="off">
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
                 <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
