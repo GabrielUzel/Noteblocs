@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    height: inherit;
+}
+
+#signup-menu {
+    align-items: inherit;
+    padding-top: 3rem;
+}
+
+#signup-container {
+    justify-content: flex-start;
+    gap: 8rem;
+}
+
+#signup-form button {
+    margin-top: 3rem;
+}

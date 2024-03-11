@@ -3,6 +3,64 @@
     font-family: optima, sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 h1 {
     font-size: 4rem;
+}
+
+.form-menu {
+    background-color: #E7EAEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12rem;
+    padding: 7rem;
+    margin: 6rem;
+    border-radius: 2.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.313rem 0.938rem;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.forms {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7rem;
+}
+
+.forms input {
+    background-color: #E7EAEF;
+    border: none;
+    border-bottom: 2px solid #000000;
+    height: 2.3rem;
+    width: 20rem;
+}
+
+.forms input:focus {
+    outline: none;
+    border-image: linear-gradient(to right, #037ade, #009bef, #00b8ea, #00d0d4, #03e5b7);
+    border-image-slice: 1;
+}
+
+button {
+    color: #FFFFFF;
+    background-image: linear-gradient(to right, #037ade, #009bef, #00b8ea, #00d0d4, #03e5b7);
+    padding: 1.1rem 2.8rem;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
 }
