@@ -11,5 +11,6 @@ route.post('/login', passport.authenticate('local', { session : false }));
 
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', signupController.signupPage);
+route.post('/signup', signupController.createUser);
 
 module.exports = route;

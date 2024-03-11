@@ -1,3 +1,3 @@
-exports.homePage = (require, response) => {
+exports.homePage = (request, response) => {
     response.render('index');
 }

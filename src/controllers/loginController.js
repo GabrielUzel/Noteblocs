@@ -1,3 +1,3 @@
-exports.loginPage = (require, response) => {
+exports.loginPage = (request, response) => {
     response.render('login');
 }
