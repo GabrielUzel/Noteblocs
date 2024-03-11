@@ -1,16 +1,24 @@
-<%- include('includes/header') %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleLogin.css" type="text/css" media="all">
+    <title>Noteblocs</title>
+</head>
 
 <body>
     <section id="login-menu">
-        <div>
-            <img src="" alt="">
-        </div>
-        <div>
+        <img src="/img/imagem_teste.jpg" alt="">
+        <div id="form-container">
             <h1> Login </h1>
-            <form action="/login" method="post">
-                <input id="email" name="email" type="text" placeholder="Email">
-                <input id="password" name="password" type="text" placeholder="Senha">
+            <form id="login-form" action="/login" method="post">
+                <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
+                <input id="password" name="password" type="text" placeholder="Senha" autocomplete="off">
                 <button type="submit">Login</button>
+                <a href="/signup">Cadastre-se</a>
             </form>
         </div>
     </section>
