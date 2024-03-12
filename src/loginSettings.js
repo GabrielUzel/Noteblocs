@@ -23,13 +23,13 @@ passport.use(
         try {
             if(!email || !password) throw new Error('Missing credentials');
             
-            const currentUser = await User.findOne({ email });
+            const currentUser = await User.findOne({ email: email });
             if(!currentUser) throw new Error('User not found');
             if(!comparePassword(password, currentUser.password)) throw new Error('Bad credentials');
-            console.log("login feito!");
             done(null, currentUser);
         } catch(error) {
-            done(error, null);   
+            console.log(error.message);
+            done(null, null, { message: error.message });   
         }
     })
 )

@@ -7,9 +7,12 @@ route.get('/', homeController.homePage);
 
 const loginController = require('./src/controllers/loginController');
 route.get('/login', loginController.loginPage);
-route.post('/login', passport.authenticate('local', { session : false }), (request, response) => {
-    response.redirect('/login');
-});
+route.post('/login', passport.authenticate('local', { 
+    session : false,
+    successRedirect: '/',
+    failureRedirect: 'login',
+    failureFlash: true 
+}));
 
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', signupController.signupPage);

@@ -24,7 +24,7 @@ app.on("Connected", () => {
 
 // Session config
 const sessionOptions = session({
-    secret: 'user noteblocs',
+    secret: process.env.SESSIONSECRET,
     store: new MongoStore({ mongoUrl: process.env.CONNECTIONSTRING }),
     resave: false,
     saveUninitialized: false,
@@ -36,13 +36,12 @@ const sessionOptions = session({
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
-app.use(express.static('./public'));
-app.use(sessionOptions);
 app.use(flash());
 app.use(sessionOptions);
+app.use(express.static('./public'));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(routes);
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
