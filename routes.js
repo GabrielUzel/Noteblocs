@@ -7,10 +7,11 @@ route.get('/', homeController.homePage);
 
 const loginController = require('./src/controllers/loginController');
 route.get('/login', loginController.loginPage);
-route.post('/login', passport.authenticate('local', { session : false }));
+route.post('/login', passport.authenticate('local', { session : false }), (request, response) => {
+    response.redirect('/login');
+});
 
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', signupController.signupPage);
-route.post('/signup', signupController.createUser);
-
+route.post('/signup/createUser', signupController.createUser);
 module.exports = route;

@@ -8,6 +8,7 @@ const flash = require('connect-flash');
 const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 require('./src/loginSettings');
 
 const app = express();
@@ -33,6 +34,7 @@ const sessionOptions = session({
     }
 });
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 app.use(express.static('./public'));
