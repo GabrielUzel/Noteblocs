@@ -12,13 +12,13 @@ exports.createUser = async (request, response, next) => {
         validateCredentials(userInfo);
 
         const user = await User.findOne({ email: userInfo['email'] });
-        if(user) throw new Error('User already exists');
+        if(user) throw new Error('Esse email já foi utilizado por outro usuário');
 
         userInfo['password'] = await hashPassword(userInfo['password']);
         await User.create(userInfo);
         response.redirect('/login');
     } catch(error) {
         request.flash('error', error.message);
-        response.redirect('/signup');
+        request.session.save(() => { response.redirect('back'); });
     }
 }
