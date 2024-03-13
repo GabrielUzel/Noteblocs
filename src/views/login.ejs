@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="/css/styleLogin.css" type="text/css" media="all">
-    <title>Noteblocs</title>
+    <title>NoteBlocs</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <div class="form-container">
             <h1> Login </h1>
             <form id="login-form" class="forms" action="/login" method="POST">
-                <%- include('includes/errorMessage') %>
+                <%- include('includes/errorMessages') %>
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
                 <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
                 <button type="submit">Login</button>

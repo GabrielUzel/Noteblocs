@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const { logUser } = require('./src/utils/middlewares');
 require('./src/loginSettings');
 
 const app = express();
@@ -19,10 +20,6 @@ const app = express();
 mongoose.connect(process.env.CONNECTIONSTRING).then(() => {
     app.emit('Connected');
 }).catch(e => console.log(e)); 
-
-app.on("Connected", () => {
-    app.listen(process.env.PORT, () => console.log('Server opened...'));
-})
 
 // Session config
 const sessionOptions = session({
@@ -36,16 +33,21 @@ const sessionOptions = session({
     }
 });
 
+app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(connectFlash());
 app.use(flash());
+app.use(cookieParser('secretString'));
 app.use(sessionOptions);
-app.use(express.static('./public'));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cookieParser('secretString'));
+app.use(logUser);
 app.use(routes);
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
+
+app.on("Connected", () => {
+    app.listen(process.env.PORT, () => console.log('Server opened...'));
+})

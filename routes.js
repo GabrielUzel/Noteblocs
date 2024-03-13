@@ -8,7 +8,6 @@ route.get('/', homeController.homePage);
 const loginController = require('./src/controllers/loginController');
 route.get('/login', loginController.loginPage);
 route.post('/login', passport.authenticate('local', { 
-    session : false,
     successRedirect: '/',
     failureRedirect: 'login',
     failureFlash: true 
@@ -17,4 +16,5 @@ route.post('/login', passport.authenticate('local', {
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', signupController.signupPage);
 route.post('/signup', signupController.createUser);
+
 module.exports = route;

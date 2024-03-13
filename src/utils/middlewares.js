@@ -1,3 +1,8 @@
+exports.logUser = (request, response, next) => {
+    response.locals.user = request.user;
+    next();
+}
+
 exports.validateCredentials = (userInfo) => {
     if(!userInfo['username'] || !userInfo['email'] || !userInfo['password']) throw new Error('Todos os campos devem ser preenchidos');
 
