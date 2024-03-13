@@ -21,15 +21,14 @@ passport.use(
         passwordField: 'password'
     }, async (email, password, done) => {
         try {
-            if(!email || !password) throw new Error('Missing credentials');
+            if(!email || !password) return done(null, false, { message: 'Campos  vazios'});
             
             const currentUser = await User.findOne({ email: email });
-            if(!currentUser) throw new Error('User not found');
-            if(!comparePassword(password, currentUser.password)) throw new Error('Bad credentials');
-            done(null, currentUser);
+            if(!currentUser) return done(null, false, { message: 'Email inválido'});
+            if(!comparePassword(password, currentUser.password)) return done(null, false, { message: 'Senha incorreta'});
+            return done(null, currentUser);
         } catch(error) {
-            console.log(error.message);
-            done(null, null, { message: error.message });   
+            return done(error);   
         }
     })
 )

@@ -4,7 +4,8 @@ const path = require('path');
 const routes = require('./routes');
 const express = require('express');
 const session = require('express-session');
-const flash = require('connect-flash');
+const connectFlash = require('connect-flash');
+const flash = require('express-flash')
 const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -36,6 +37,7 @@ const sessionOptions = session({
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(connectFlash());
 app.use(flash());
 app.use(sessionOptions);
 app.use(express.static('./public'));

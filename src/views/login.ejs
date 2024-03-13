@@ -14,11 +14,12 @@
         <img src="/img/imagem_teste.jpg" alt="">
         <div class="form-container">
             <h1> Login </h1>
-            <% if(locals.err_msg) { %>
-                console.log('cu')
-                <div role="alert"><%= err_msg %></div>
-            <% } %>
             <form id="login-form" class="forms" action="/login" method="POST">
+                <% if (messages.error) { %>
+                    <div id="errorMessage">  
+                        <%= messages.error %>
+                    </div>
+                <% } %>
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
                 <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
                 <button type="submit">Login</button>
