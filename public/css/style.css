@@ -73,3 +73,8 @@ button:hover {
     border-radius: 9px;
     border: 1px solid red;
 }
+
+.hidden {
+    min-height: 1.18rem;
+    visibility: hidden;
+}

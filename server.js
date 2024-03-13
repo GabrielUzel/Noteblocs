@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 require('./src/loginSettings');
 
 const app = express();
@@ -43,6 +44,7 @@ app.use(sessionOptions);
 app.use(express.static('./public'));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser('secretString'));
 app.use(routes);
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));

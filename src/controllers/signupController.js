@@ -13,13 +13,12 @@ exports.createUser = async (request, response, next) => {
 
         const user = await User.findOne({ email: userInfo['email'] });
         if(user) throw new Error('User already exists');
-        
-        userInfo['password'] = await hashPassword(userInfo['password']);
 
+        userInfo['password'] = await hashPassword(userInfo['password']);
         await User.create(userInfo);
         response.redirect('/login');
     } catch(error) {
-        console.log(error);
+        request.flash('error', error.message);
         response.redirect('/signup');
     }
 }
