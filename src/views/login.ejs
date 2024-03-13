@@ -15,15 +15,7 @@
         <div class="form-container">
             <h1> Login </h1>
             <form id="login-form" class="forms" action="/login" method="POST">
-                <% if (messages.error) { %>
-                    <div id="errorMessage">  
-                        <%= messages.error %>
-                    </div>
-                <% } else { %>
-                    <div id="errorMessage" class="hidden">  
-                        
-                    </div>
-                <% } %>
+                <%- include('includes/errorMessage') %>
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
                 <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
                 <button type="submit">Login</button>
