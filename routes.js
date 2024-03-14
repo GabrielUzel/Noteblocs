@@ -17,4 +17,6 @@ const signupController = require('./src/controllers/signupController');
 route.get('/signup', signupController.signupPage);
 route.post('/signup', signupController.createUser);
 
+const logoutController = require('./src/controllers/logoutController');
+route.get('/logout', logoutController.logOutUser);
 module.exports = route;
