@@ -17,7 +17,7 @@ exports.createUser = async (request, response, next) => {
         userInfo['password'] = await hashPassword(userInfo['password']);
         await User.create(userInfo);
 
-        response.redirect('/login');
+        response.redirect('/signup/confirm');
     } catch(error) {
         request.flash('error', error.message);
         request.session.save(() => { response.redirect('back'); });
