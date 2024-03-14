@@ -10,6 +10,7 @@ route.get('/login', loginController.loginPage);
 route.post('/login', passport.authenticate('local', { 
     successRedirect: '/',
     failureRedirect: 'login',
+    badRequestMessage: 'Há campos vazios',
     failureFlash: true 
 }));
 
@@ -19,4 +20,5 @@ route.post('/signup', signupController.createUser);
 
 const logoutController = require('./src/controllers/logoutController');
 route.get('/logout', logoutController.logOutUser);
+
 module.exports = route;

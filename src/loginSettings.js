@@ -3,7 +3,7 @@ const { Strategy } = require('passport-local');
 const User = require('./database/models/userModel');
 const { comparePassword } = require('./utils/hashPassword');
 
-passport.serializeUser((user, done) => done(null, user._id));
+passport.serializeUser((user, done) => done(null, user.id));
 
 passport.deserializeUser(async (id, done) => {
     try {
@@ -20,9 +20,7 @@ passport.use(
         usernameField: 'email',
         passwordField: 'password'
     }, async (email, password, done) => {
-        try {
-            if(!email || !password) return done(null, false, { message: 'Campos  vazios'});
-            
+        try {            
             const currentUser = await User.findOne({ email: email });
 
             if(!currentUser) return done(null, false, { message: 'Email inválido'});
