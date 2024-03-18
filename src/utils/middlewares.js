@@ -15,3 +15,8 @@ exports.validateCredentials = (userInfo) => {
     const regexPassword = /^(?=.*[0-9])(?=.*[a-z])(?!.* ).{8,16}$/;
     if(!regexPassword.test(userInfo['password'])) throw new Error('Senha inválida');
 }
+
+exports.checkUserLoged = (request, response, next) => {
+    if(request.user) { return response.redirect('/'); }
+    next();
+}

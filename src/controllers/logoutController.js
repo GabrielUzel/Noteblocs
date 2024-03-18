@@ -1,7 +1,7 @@
 exports.logOutUser = (request, response) => {
     response.clearCookie('connect.sid');
 
-    request.logout((error) => {
+    request.logout(() => {
         request.session.destroy(() => {
             response.redirect('/'); 
         }) 
