@@ -13,6 +13,11 @@
     <nav id="menu">
         <h1>NoteBlocs</h1>
         <ul>
+            <li>
+                <button id="nav-button">
+                    +
+                </button>
+            </li>
             <% if(!user) { %>
             <li>
                 <a href="/login">Entrar</a>
@@ -26,6 +31,26 @@
             <% } %>
         </ul>
     </nav>
-    <!-- <script src="/js/bundle.js"></script> -->
+    <div class="container">
+        <section id="notebook-list">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, doloremque vitae non sunt placeat reiciendis fugiat commodi natus. Corrupti architecto impedit qui voluptas similique excepturi porro obcaecati tenetur nemo voluptatum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas aut minus assumenda illum alias, laudantium error, atque eius eligendi officia accusamus magni, pariatur molestiae. Quisquam necessitatibus in fuga eligendi ipsum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fugit sit nisi cupiditate consequuntur rerum nostrum neque, eligendi praesentium amet pariatur tempora nihil reiciendis repudiandae et at esse sed id!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, doloremque vitae non sunt placeat reiciendis fugiat commodi natus. Corrupti architecto impedit qui voluptas similique excepturi porro obcaecati tenetur nemo voluptatum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas aut minus assumenda illum alias, laudantium error, atque eius eligendi officia accusamus magni, pariatur molestiae. Quisquam necessitatibus in fuga eligendi ipsum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, doloremque vitae non sunt placeat reiciendis fugiat commodi natus. Corrupti architecto impedit qui voluptas similique excepturi porro obcaecati tenetur nemo voluptatum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas aut minus assumenda illum alias, laudantium error, atque eius eligendi officia accusamus magni, pariatur molestiae. Quisquam necessitatibus in fuga eligendi ipsum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fugit sit nisi cupiditate consequuntur rerum nostrum neque, eligendi praesentium amet pariatur tempora nihil reiciendis repudiandae et at esse sed id!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fugit sit nisi cupiditate consequuntur rerum nostrum neque, eligendi praesentium amet pariatur tempora nihil reiciendis repudiandae et at esse sed id!
+        </section>
+        <section id="add-notebook-section">
+            <h1> Novo caderno de anotações </h1>
+            <form id="new-notebook-form" class="" action="" method="POST">
+                <input id="title" name="title" type="text" autocomplete="off" placeholder="Título">
+                <button type="submit">Create</button>
+            </form>
+        </section>
+    </div>
+    <script src="/js/bundle.js"></script>
 </body>
 </html>

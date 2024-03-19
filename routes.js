@@ -5,6 +5,7 @@ const { checkUserLoged } = require('./src/utils/middlewares')
 
 const homeController = require('./src/controllers/homeController');
 route.get('/', homeController.homePage);
+route.post('/', homeController.newNotebook);
 
 const loginController = require('./src/controllers/loginController');
 route.get('/login', checkUserLoged, loginController.loginPage);
