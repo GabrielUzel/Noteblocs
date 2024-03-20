@@ -52,6 +52,11 @@ h1 {
     background-color: rgb(255, 255, 255, 0.5);
 }
 
+#menu img {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
 #add-notebook-section {
     background-color: #FED86B;
     display: flex;
@@ -78,4 +83,56 @@ h1 {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+}
+
+#title-input {
+    background: none;
+    font-size: 2rem;
+    border: none;
+    border-bottom: 2px solid #000000;
+    height: 2.3rem;
+    width: 40rem;
+}
+
+#title-input:focus {
+    outline: none;
+}
+
+#form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+#form-buttons button {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+}
+
+#form-buttons button:hover {
+    cursor: pointer;
+}
+
+.underline-animation {
+    position: relative;
+}
+
+.underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+#form-buttons button:hover .underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }

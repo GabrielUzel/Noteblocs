@@ -14,8 +14,8 @@
         <h1>NoteBlocs</h1>
         <ul>
             <li>
-                <button id="nav-button">
-                    +
+                <button id="nav-button" title="Novo bloco">
+                    <img src="/img/plusIcon.png" alt="Image de adição no botão">
                 </button>
             </li>
             <% if(!user) { %>
@@ -46,10 +46,10 @@
         <section id="add-notebook-section">
             <h1> Novo caderno de anotações </h1>
             <form id="new-notebook-form" class="" action="" method="POST">
-                <input id="title" name="title" type="text" autocomplete="off" placeholder="Título">
-                <div>
-                    <button type="submit">Criar</button>
-                    <button id="closeFormButton" type="button">Cancelar</button>
+                <input id="title-input" name="title" type="text" autocomplete="off" placeholder="Título">
+                <div id="form-buttons">
+                    <button type="submit"><div class="underline-animation">Criar</div></button>
+                    <button id="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
                 </div>
             </form>
         </section>
