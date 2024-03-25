@@ -33,18 +33,14 @@
     </nav>
     <section id="notebook-list">
         <ul id="notebook-entries">
-            <li>
-                <img class="notebook-img" src="/img/imgTeste.jpg" alt="">
-                <p>Título</p>
-            </li>
-            <li>
-                <img class="notebook-img" src="/img/imgTeste.jpg" alt="">
-                <p>Título</p>
-            </li>
-            <li>
-                <img class="notebook-img" src="/img/imgTeste.jpg" alt="">
-                <p>Título</p>
-            </li>
+            <% notebookList.forEach((item) => { %>
+                <li>
+                    <a href="/notebook?id=<%= item.id %>">
+                        <img class="notebook-img" src="/img/imgTeste.jpg" alt="">
+                        <p> <%= item.title %> </p>
+                    </a>
+                </li>
+            <% }) %>
         </ul>
     </section>
     <section id="add-notebook-section">
