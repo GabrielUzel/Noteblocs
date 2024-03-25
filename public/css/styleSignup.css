@@ -5,14 +5,14 @@ body {
 }
 
 #signup-menu {
-    align-items: inherit;
-    padding-top: 3rem;
-}
-
-#signup-container {
     justify-content: flex-start;
+    padding: .3rem 6rem 0 6rem;
 }
 
-#signup-form button {
-    margin-top: 3rem;
+#signup-form {
+    gap: 2rem;
+}
+
+#signup-form input {
+    width: 20rem;
 }

@@ -8,10 +8,10 @@
     <title>NoteBlocs</title>
 </head>
 <body>
-    <section id="signup-menu" class="form-menu">
-        <div id="signup-container" class="form-container">
+    <section id="signup-menu" class="auth-menu">
+        <div class="auth-form-container">
             <h1> Cadastre-se </h1>
-            <form id="signup-form" class="forms" action="/signup" method="POST">
+            <form id="signup-form" class="auth-form" action="/signup" method="POST">
                 <%- include('includes/errorMessages') %>
                 <input id="username" name="username" type="text" placeholder="Username" autocomplete="off">
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">

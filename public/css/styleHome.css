@@ -1,17 +1,9 @@
-body {
-    height: 100%;
-}
-
-h1 {
-    font-size: 2rem;
-}
-
 #menu {
     color: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(72, 202, 198);
+    background-color: #48cac6;
     position: fixed;
     z-index: 9000;
     top: 0;
@@ -23,7 +15,7 @@ h1 {
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
-    padding-right: 3.1rem;
+    margin-right: 3rem;
 }
 
 #menu a {
@@ -72,11 +64,11 @@ h1 {
     position: fixed;
     z-index: 9000;
     top: 0;
-    margin-top: 9rem;
-    margin-left: 25rem;
+    margin-top: 5rem;
+    margin-left: 18rem;
     padding: 3rem;
-    width: 50rem;
-    height: 30rem;
+    width: 45rem;
+    height: 25rem;
     visibility: hidden;
 }
 
@@ -154,4 +146,10 @@ h1 {
     flex-wrap: wrap;
     gap: 2rem;
     padding-bottom: 3rem;
+}
+
+.notebook-img {
+    width: 12rem;
+    height: 14rem;
+    padding-top: 2.2rem;
 }
