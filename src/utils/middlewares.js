@@ -1,5 +1,6 @@
 exports.logUser = (request, response, next) => {
     response.locals.user = request.user;
+    response.locals.notebookList = [];
     next();
 }
 

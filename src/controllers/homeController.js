@@ -1,13 +1,12 @@
 const Notebook = require('../database/models/notebookModel');
 
 exports.homePage = async (request, response) => {
-    const notebookList = await Notebook.find({ ownerEmail: request.user.email });
-
-    for (const notebook of notebookList) {
-        console.log(notebook);
+    if(request.user) {
+        const notebookList = await Notebook.find({ ownerEmail: request.user.email });
+        response.render('index', { notebookList: notebookList });
+    } else {
+        response.render('index');
     }
-
-    response.render('index', { notebookList: notebookList });
 }
 
 exports.newNotebook = async (request, response) => {
