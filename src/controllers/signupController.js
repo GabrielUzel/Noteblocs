@@ -1,5 +1,5 @@
 const { hashPassword } = require('../utils/hashPassword');
-const User  = require('../database/models/userModel');
+const User = require('../database/models/userModel');
 const { validateCredentials } = require('../utils/middlewares');
 
 exports.signupPage = (request, response) => {

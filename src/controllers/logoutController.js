@@ -3,5 +3,5 @@ exports.logOutUser = (request, response) => {
 
     request.logout(() => {
         request.session.destroy(() => response.redirect('/')); 
-    })
+    });
 }

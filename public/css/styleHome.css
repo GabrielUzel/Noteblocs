@@ -153,3 +153,8 @@
     height: 14rem;
     padding-top: 2.2rem;
 }
+
+#notebook-entries p {
+    display: block;
+    text-align: center;
+}

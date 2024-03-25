@@ -7,7 +7,6 @@ const notebookSchema = new mongoose.Schema({
     },
     wallpaperId: {
         type: Number,
-        default: 1,
         required: true
     },
     ownerEmail: {
