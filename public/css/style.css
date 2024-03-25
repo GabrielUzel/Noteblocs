@@ -91,3 +91,9 @@ h1 {
     min-height: 1.18rem;
     visibility: hidden;
 }
+
+.notebook-img {
+    width: 12rem;
+    height: 14rem;
+    padding-top: 2.2rem;
+}
