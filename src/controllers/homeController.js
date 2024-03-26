@@ -14,8 +14,9 @@ exports.newNotebook = async (request, response) => {
         const notebookInfo = JSON.parse(JSON.stringify(request.body));
 
         if(!notebookInfo.title) notebookInfo.title = 'Sem título';
+        if(!notebookInfo.wallpaperId) notebookInfo.wallpaperId = 0;
 
-        notebookInfo.wallpaperId = 1;
+        notebookInfo.wallpaperId = notebookInfo.wallpaperId;
         notebookInfo.ownerEmail = request.user.email;
         
         await Notebook.create(notebookInfo);

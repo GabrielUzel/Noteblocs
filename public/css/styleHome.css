@@ -92,6 +92,52 @@
     outline: none;
 }
 
+#wallpaper-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2.5rem;
+}
+
+#wallpaper-list div {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.radio-button {
+    visibility: hidden;
+}
+
+.radio-button:checked + img {
+    border: 1px solid red;
+}
+
+#wallpaper-list label {
+    display: block;
+    float: left;
+}
+
+.wallpapers {
+    width: 6rem;
+    height: 8rem;
+    top: 0;
+    left: 0;
+}
+
+.wallpapers:hover {
+    cursor: pointer;
+}
+
+.check-mark-img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 120px;
+    left: 85px;
+    visibility: hidden;
+    z-index: 1000;
+}
+
 #form-buttons {
     display: flex;
     justify-content: center;
