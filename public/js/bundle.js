@@ -4,16 +4,16 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 var navButton = document.getElementById('nav-button');
-var addNotebookSection = document.getElementById('add-notebook-section');
+var addItemSection = document.getElementsByClassName('add-item-section');
 var newNotebookForm = document.getElementById('new-notebook-form');
 var closeFormButton = document.getElementById('closeFormButton');
 var markImages = document.querySelectorAll('.check-mark-img');
 var wallpaperImages = document.querySelectorAll('.wallpapers');
 navButton.addEventListener('click', function () {
-  addNotebookSection.style.setProperty('visibility', 'visible');
+  addItemSection[0].style.setProperty('visibility', 'visible');
 });
 closeFormButton.addEventListener('click', function () {
-  addNotebookSection.style.setProperty('visibility', 'hidden');
+  addItemSection[0].style.setProperty('visibility', 'hidden');
   Array.prototype.map.call(markImages, function (checkMark) {
     checkMark.style.setProperty('visibility', 'hidden');
   });
@@ -38,8 +38,6 @@ wallpaperImages.forEach(function (item) {
         }
       });
     }
-
-    //Array.prototype.findIndex.call(wallpaperImages, (wallpaper) => wallpaper.classList.contains('selected'));    
   });
 });
 /******/ })()

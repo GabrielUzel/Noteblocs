@@ -15,7 +15,7 @@
         <ul>
             <li>
                 <button id="nav-button" title="Novo bloco">
-                    <img src="/img/plusIcon.png" alt="Image de adição no botão">
+                    <img src="/img/plusIcon.png" alt="Imagem de adição no botão">
                 </button>
             </li>
             <% if(!user) { %>
@@ -31,22 +31,22 @@
             <% } %>
         </ul>
     </nav>
-    <section id="notebook-list">
-        <ul id="notebook-entries">
+    <section class="item-list">
+        <ul class="item-entries">
             <% notebookList.forEach((item) => { %>
                 <li>
-                    <a href="/notebook?id=<%= item.id %>">
-                        <img class="notebook-img" src="/img/notebookImage<%=item.wallpaperId %>.jpg" alt="">
+                    <a href="/notebook/?id=<%= item.id %>">
+                        <img class="item-img" src="/img/notebookImage<%=item.wallpaperId %>.jpg" alt="">
                         <p> <%= item.title %> </p>
                     </a>
                 </li>
             <% }) %>
         </ul>
     </section>
-    <section id="add-notebook-section">
+    <section class="add-item-section">
         <h1> Novo caderno de anotações </h1>
-        <form id="new-notebook-form" class="" action="" method="POST">
-            <input id="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+        <form class="new-item-form" action="" method="POST">
+            <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
             <p>Selecione o papel de parede: </p>
             <div id="wallpaper-list">
                 <div>
@@ -75,7 +75,7 @@
                     <img class="check-mark-img" src="/img/checkMark.png" alt="">
                 </div>
             </div>
-            <div id="form-buttons">
+            <div class="form-buttons">
                 <button type="submit"><div class="underline-animation">Criar</div></button>
                 <button id="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
             </div>

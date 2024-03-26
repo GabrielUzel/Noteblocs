@@ -7,6 +7,10 @@ const homeController = require('./src/controllers/homeController');
 route.get('/', homeController.homePage);
 route.post('/', homeController.newNotebook);
 
+const notebookController = require('./src/controllers/notebookController');
+route.get('/notebook/:id?', notebookController.notebookPage);
+route.post('/notebook/:id?', notebookController.newNote);
+
 const loginController = require('./src/controllers/loginController');
 route.get('/login', checkUserLoged, loginController.loginPage);
 route.post('/login', passport.authenticate('local', { 

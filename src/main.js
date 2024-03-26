@@ -1,16 +1,16 @@
 const navButton = document.getElementById('nav-button');
-const addNotebookSection = document.getElementById('add-notebook-section');
+const addItemSection = document.getElementsByClassName('add-item-section');
 const newNotebookForm = document.getElementById('new-notebook-form');
 const closeFormButton = document.getElementById('closeFormButton');
 const markImages = document.querySelectorAll('.check-mark-img');
 const wallpaperImages = document.querySelectorAll('.wallpapers');
 
 navButton.addEventListener('click', () => {
-    addNotebookSection.style.setProperty('visibility', 'visible');
+    addItemSection[0].style.setProperty('visibility', 'visible');
 });
 
 closeFormButton.addEventListener('click', () => {
-    addNotebookSection.style.setProperty('visibility', 'hidden');
+    addItemSection[0].style.setProperty('visibility', 'hidden');
 
     Array.prototype.map.call(markImages, (checkMark) => {
         checkMark.style.setProperty('visibility', 'hidden');
@@ -39,8 +39,6 @@ wallpaperImages.forEach((item) => {
                     checkMark.style.setProperty('visibility', 'hidden');
                 }
             });
-        }
-        
-        //Array.prototype.findIndex.call(wallpaperImages, (wallpaper) => wallpaper.classList.contains('selected'));    
+        }  
     });
 });

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleNotebook.css" type="text/css" media="all">
+    <title>NoteBlocs</title>
+</head>
+
+<body>
+    <nav id="menu">
+        <h1>NoteBlocs</h1>
+        <ul>
+            <li>
+                <button id="nav-button" title="Nova anotação">
+                    <img src="/img/plusIcon.png" alt="Imagem de adição no botão">
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="item-list">
+        <ul class="item-entries">
+            <% notesList.forEach((item) => { %>
+                <li>
+                    <a href="">
+                        <img class="item-img" src="/img/imgTeste.jpg" alt="">
+                        <p> <%= item.title %> </p>
+                    </a>                    
+                </li>
+            <% }) %>
+        </ul>
+    </section>
+
+    <section class="add-item-section">
+        <h1> Nova anotação </h1>
+        <form class="new-item-form" action="" method="POST">
+            <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+            <div class="form-buttons">
+                <button type="submit"><div class="underline-animation">Criar</div></button>
+                <button id="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
+            </div>
+        </form>
+    </section>
+    <script src="/js/bundle.js"></script> 
+</body>
+</html>
