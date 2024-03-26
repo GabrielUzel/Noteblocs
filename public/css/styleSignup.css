@@ -1,7 +1,32 @@
 body {
+    height: 100%;
+}
+
+#signup-container {
     display: flex;
     justify-content: center;
     height: inherit;
+}
+
+#back-button {
+    background-color: #FFFFFF;
+    border: none;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    height: 3.2rem;
+    width: 2.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+#back-button:hover {
+    background-color: #DDDDDD;
+    color: black;
 }
 
 #signup-menu {
