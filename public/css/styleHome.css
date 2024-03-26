@@ -1,9 +1,9 @@
 #menu {
-    color: #000000;
+    color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #48cac6;
+    background-color: #04444E;
     position: fixed;
     z-index: 9000;
     top: 0;
@@ -20,7 +20,7 @@
 
 #menu a {
     display: block;
-    color: #000000;
+    color: #FFFFFF;
     text-decoration: none;
     font-size: 1.5rem;
     padding: 1rem 5rem;

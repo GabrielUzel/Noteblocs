@@ -23,7 +23,6 @@ route.post('/signup', signupController.createUser);
 const signupConfirmationController = require('./src/controllers/signupConfirmationController');
 route.get('/signup/confirm', signupConfirmationController.signupConfirmationPage);
 
-
 const logoutController = require('./src/controllers/logoutController');
 route.get('/logout', logoutController.logOutUser);
 
