@@ -16,9 +16,8 @@ exports.newNote = async (request, response) => {
         noteInfo.notebookId = request.query.id;
 
         await Note.create(noteInfo);
-        response.redirect('/notebook/?id=' + request.query.id);
+        response.redirect('back');
     } catch(error) {
-        console.log(error);
         response.render('404');
     }
 }

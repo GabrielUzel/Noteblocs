@@ -228,7 +228,12 @@ h1 {
     padding-bottom: 3rem;
 }
 
+.item-entries li {
+    position: relative;
+}
+
 .item-img {
+    position: relative;
     width: 12rem;
     height: 14rem;
     padding-top: 2.2rem;

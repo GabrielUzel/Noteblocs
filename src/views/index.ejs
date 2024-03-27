@@ -34,11 +34,26 @@
     <section class="item-list">
         <ul class="item-entries">
             <% notebookList.forEach((item) => { %>
-                <li>
+                <li class="entrie">
                     <a href="/notebook/?id=<%= item.id %>">
                         <img class="item-img" src="/img/notebookImage<%=item.wallpaperId %>.jpg" alt="">
                         <p> <%= item.title %> </p>
                     </a>
+                    <button class="kebab-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <nav class="item-nav">
+                        <form id="editForm" action="" method="post">
+                            <input type="hidden" id="notebookId" name="id" value="<%= item.id %>">
+                            <button class="edit-button" type="submit">Editar</button>
+                        </form>
+                        <form id="deleteForm" action="/deletenotebook" method="post">
+                            <input type="hidden" id="notebookId" name="id" value="<%= item.id %>">
+                            <button class="edit-button" type="submit">Excluir</button>
+                        </form>
+                    </nav>
                 </li>
             <% }) %>
         </ul>

@@ -1,4 +1,5 @@
 const Notebook = require('../database/models/notebookModel');
+const Note = require('../database/models/noteModel');
 
 exports.homePage = async (request, response) => {
     if(request.user) {
@@ -22,7 +23,18 @@ exports.newNotebook = async (request, response) => {
         await Notebook.create(notebookInfo);
         response.redirect('/');
     } catch(error) {
-        console.log(error);
+        response.render('404');
+    }
+}
+
+exports.deleteNotebook = async (request, response) => {
+    try {
+        const notebookId = request.body.id;
+        await Notebook.deleteOne({_id: notebookId});
+        await Note.deleteMany({notebookId: notebookId});
+
+        response.redirect('/');
+    } catch(error) {
         response.render('404');
     }
 }

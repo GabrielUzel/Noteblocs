@@ -4,6 +4,9 @@ const newNotebookForm = document.getElementById('new-notebook-form');
 const closeFormButton = document.getElementById('closeFormButton');
 const markImages = document.querySelectorAll('.check-mark-img');
 const wallpaperImages = document.querySelectorAll('.wallpapers');
+const itemEntriesLi = document.querySelectorAll('.entrie');
+const kebabButton = document.querySelectorAll('.kebab-button');
+const itemNav = document.querySelectorAll('.item-nav');
 
 navButton.addEventListener('click', () => {
     addItemSection[0].style.setProperty('visibility', 'visible');
@@ -40,5 +43,41 @@ wallpaperImages.forEach((item) => {
                 }
             });
         }  
+    });
+});
+
+itemEntriesLi.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+        Array.prototype.map.call(kebabButton, (button) => {
+            if(Array.prototype.indexOf.call(kebabButton, button) === Array.prototype.indexOf.call(itemEntriesLi, item)) {
+                button.style.display = 'block';
+            }
+        });
+    });
+});
+
+itemEntriesLi.forEach((item) => {
+    item.addEventListener('mouseout', () => {
+        Array.prototype.map.call(kebabButton, (button) => {
+            if(Array.prototype.indexOf.call(kebabButton, button) === Array.prototype.indexOf.call(itemEntriesLi, item)) {
+                button.style.display = 'none';
+            }
+        });
+    });
+});
+
+kebabButton.forEach((item) => {
+    item.addEventListener('click', () => {
+        Array.prototype.map.call(itemNav, (nav) => {
+            if(Array.prototype.indexOf.call(kebabButton, item) === Array.prototype.indexOf.call(itemNav, nav)) {
+                nav.style.display = 'block';
+            }
+        });
+    });
+});
+
+itemNav.forEach((item) => {
+    item.addEventListener('mouseleave', () => {
+        item.style.display = 'none';
     });
 });
