@@ -2,11 +2,11 @@ const navButton = document.getElementById('nav-button');
 const addItemSection = document.getElementsByClassName('add-item-section');
 const newNotebookForm = document.getElementById('new-notebook-form');
 const closeFormButton = document.getElementById('closeFormButton');
-const markImages = document.querySelectorAll('.check-mark-img');
-const wallpaperImages = document.querySelectorAll('.wallpapers');
-const itemEntriesLi = document.querySelectorAll('.entrie');
-const kebabButton = document.querySelectorAll('.kebab-button');
-const itemNav = document.querySelectorAll('.item-nav');
+const markImages = Array.from(document.querySelectorAll('.check-mark-img'));
+const wallpaperImages = Array.from(document.querySelectorAll('.wallpapers'));
+const itemEntriesLi = Array.from(document.querySelectorAll('.entrie'));
+const kebabButton = Array.from(document.querySelectorAll('.kebab-button'));
+const itemNav = Array.from(document.querySelectorAll('.item-nav'));
 
 navButton.addEventListener('click', () => {
     addItemSection[0].style.setProperty('visibility', 'visible');
@@ -15,28 +15,28 @@ navButton.addEventListener('click', () => {
 closeFormButton.addEventListener('click', () => {
     addItemSection[0].style.setProperty('visibility', 'hidden');
 
-    Array.prototype.map.call(markImages, (checkMark) => {
+    markImages.map((checkMark) => {
         checkMark.style.setProperty('visibility', 'hidden');
     });
 
-    Array.prototype.map.call(wallpaperImages, (wallpaper) => {
+    wallpaperImages.map((wallpaper) => {
         wallpaper.classList.remove('selected');
     });
 });
 
-wallpaperImages.forEach((item) => {
-    item.addEventListener('click', () => {
-        if(!item.classList.contains('selected')) {
-            item.classList.add('selected');
+wallpaperImages.forEach((wallpaperIndex1) => {
+    wallpaperIndex1.addEventListener('click', () => {
+        if(!wallpaperIndex1.classList.contains('selected')) {
+            wallpaperIndex1.classList.add('selected');
 
-            Array.prototype.map.call(wallpaperImages, (wallpaper) => {
-                if(Array.prototype.indexOf.call(wallpaperImages, item) !== Array.prototype.indexOf.call(wallpaperImages, wallpaper)) {
-                    wallpaper.classList.remove('selected');
+            wallpaperImages.map((wallpaperIndex2) => {
+                if(wallpaperImages.indexOf(wallpaperIndex1) !== wallpaperImages.indexOf(wallpaperIndex2)) {
+                    wallpaperIndex2.classList.remove('selected');
                 }
             });
 
-            Array.prototype.map.call(markImages, (checkMark) => {
-                if(Array.prototype.indexOf.call(wallpaperImages, item) === Array.prototype.indexOf.call(markImages, checkMark)) {
+            markImages.map((checkMark) => {
+                if(wallpaperImages.indexOf(wallpaperIndex1) === markImages.indexOf(checkMark)) {
                     checkMark.style.setProperty('visibility', 'visible');
                 } else {
                     checkMark.style.setProperty('visibility', 'hidden');
@@ -48,9 +48,9 @@ wallpaperImages.forEach((item) => {
 
 itemEntriesLi.forEach((item) => {
     item.addEventListener('mouseover', () => {
-        Array.prototype.map.call(kebabButton, (button) => {
-            if(Array.prototype.indexOf.call(kebabButton, button) === Array.prototype.indexOf.call(itemEntriesLi, item)) {
-                button.style.display = 'block';
+        kebabButton.map((button) => {
+            if(kebabButton.indexOf(button) === itemEntriesLi.indexOf(item)) {
+                button.style.setProperty('display', 'block');
             }
         });
     });
@@ -58,26 +58,26 @@ itemEntriesLi.forEach((item) => {
 
 itemEntriesLi.forEach((item) => {
     item.addEventListener('mouseout', () => {
-        Array.prototype.map.call(kebabButton, (button) => {
-            if(Array.prototype.indexOf.call(kebabButton, button) === Array.prototype.indexOf.call(itemEntriesLi, item)) {
-                button.style.display = 'none';
+        kebabButton.map((button) => {
+            if(kebabButton.indexOf(button) === itemEntriesLi.indexOf(item)) {
+                button.style.setProperty('display', 'none');
             }
         });
     });
 });
 
-kebabButton.forEach((item) => {
-    item.addEventListener('click', () => {
-        Array.prototype.map.call(itemNav, (nav) => {
-            if(Array.prototype.indexOf.call(kebabButton, item) === Array.prototype.indexOf.call(itemNav, nav)) {
-                nav.style.display = 'block';
+kebabButton.forEach((button) => {
+    button.addEventListener('click', () => {
+        itemNav.map((nav) => {
+            if(kebabButton.indexOf(button) === itemNav.indexOf(nav)) {
+                nav.style.setProperty('display', 'block');
             }
         });
     });
 });
 
-itemNav.forEach((item) => {
-    item.addEventListener('mouseleave', () => {
-        item.style.display = 'none';
+itemNav.forEach((nav) => {
+    nav.addEventListener('mouseleave', () => {
+        nav.style.setProperty('display', 'none');
     });
 });

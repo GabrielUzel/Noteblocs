@@ -7,34 +7,34 @@ var navButton = document.getElementById('nav-button');
 var addItemSection = document.getElementsByClassName('add-item-section');
 var newNotebookForm = document.getElementById('new-notebook-form');
 var closeFormButton = document.getElementById('closeFormButton');
-var markImages = document.querySelectorAll('.check-mark-img');
-var wallpaperImages = document.querySelectorAll('.wallpapers');
-var itemEntriesLi = document.querySelectorAll('.entrie');
-var kebabButton = document.querySelectorAll('.kebab-button');
-var itemNav = document.querySelectorAll('.item-nav');
+var markImages = Array.from(document.querySelectorAll('.check-mark-img'));
+var wallpaperImages = Array.from(document.querySelectorAll('.wallpapers'));
+var itemEntriesLi = Array.from(document.querySelectorAll('.entrie'));
+var kebabButton = Array.from(document.querySelectorAll('.kebab-button'));
+var itemNav = Array.from(document.querySelectorAll('.item-nav'));
 navButton.addEventListener('click', function () {
   addItemSection[0].style.setProperty('visibility', 'visible');
 });
 closeFormButton.addEventListener('click', function () {
   addItemSection[0].style.setProperty('visibility', 'hidden');
-  Array.prototype.map.call(markImages, function (checkMark) {
+  markImages.map(function (checkMark) {
     checkMark.style.setProperty('visibility', 'hidden');
   });
-  Array.prototype.map.call(wallpaperImages, function (wallpaper) {
+  wallpaperImages.map(function (wallpaper) {
     wallpaper.classList.remove('selected');
   });
 });
-wallpaperImages.forEach(function (item) {
-  item.addEventListener('click', function () {
-    if (!item.classList.contains('selected')) {
-      item.classList.add('selected');
-      Array.prototype.map.call(wallpaperImages, function (wallpaper) {
-        if (Array.prototype.indexOf.call(wallpaperImages, item) !== Array.prototype.indexOf.call(wallpaperImages, wallpaper)) {
-          wallpaper.classList.remove('selected');
+wallpaperImages.forEach(function (wallpaperIndex1) {
+  wallpaperIndex1.addEventListener('click', function () {
+    if (!wallpaperIndex1.classList.contains('selected')) {
+      wallpaperIndex1.classList.add('selected');
+      wallpaperImages.map(function (wallpaperIndex2) {
+        if (wallpaperImages.indexOf(wallpaperIndex1) !== wallpaperImages.indexOf(wallpaperIndex2)) {
+          wallpaperIndex2.classList.remove('selected');
         }
       });
-      Array.prototype.map.call(markImages, function (checkMark) {
-        if (Array.prototype.indexOf.call(wallpaperImages, item) === Array.prototype.indexOf.call(markImages, checkMark)) {
+      markImages.map(function (checkMark) {
+        if (wallpaperImages.indexOf(wallpaperIndex1) === markImages.indexOf(checkMark)) {
           checkMark.style.setProperty('visibility', 'visible');
         } else {
           checkMark.style.setProperty('visibility', 'hidden');
@@ -45,34 +45,34 @@ wallpaperImages.forEach(function (item) {
 });
 itemEntriesLi.forEach(function (item) {
   item.addEventListener('mouseover', function () {
-    Array.prototype.map.call(kebabButton, function (button) {
-      if (Array.prototype.indexOf.call(kebabButton, button) === Array.prototype.indexOf.call(itemEntriesLi, item)) {
-        button.style.display = 'block';
+    kebabButton.map(function (button) {
+      if (kebabButton.indexOf(button) === itemEntriesLi.indexOf(item)) {
+        button.style.setProperty('display', 'block');
       }
     });
   });
 });
 itemEntriesLi.forEach(function (item) {
   item.addEventListener('mouseout', function () {
-    Array.prototype.map.call(kebabButton, function (button) {
-      if (Array.prototype.indexOf.call(kebabButton, button) === Array.prototype.indexOf.call(itemEntriesLi, item)) {
-        button.style.display = 'none';
+    kebabButton.map(function (button) {
+      if (kebabButton.indexOf(button) === itemEntriesLi.indexOf(item)) {
+        button.style.setProperty('display', 'none');
       }
     });
   });
 });
-kebabButton.forEach(function (item) {
-  item.addEventListener('click', function () {
-    Array.prototype.map.call(itemNav, function (nav) {
-      if (Array.prototype.indexOf.call(kebabButton, item) === Array.prototype.indexOf.call(itemNav, nav)) {
-        nav.style.display = 'block';
+kebabButton.forEach(function (button) {
+  button.addEventListener('click', function () {
+    itemNav.map(function (nav) {
+      if (kebabButton.indexOf(button) === itemNav.indexOf(nav)) {
+        nav.style.setProperty('display', 'block');
       }
     });
   });
 });
-itemNav.forEach(function (item) {
-  item.addEventListener('mouseleave', function () {
-    item.style.display = 'none';
+itemNav.forEach(function (nav) {
+  nav.addEventListener('mouseleave', function () {
+    nav.style.setProperty('display', 'none');
   });
 });
 /******/ })()
