@@ -7,6 +7,7 @@ const homeController = require('./src/controllers/homeController');
 route.get('/', homeController.homePage);
 route.post('/', homeController.newNotebook);
 route.post('/deletenotebook', homeController.deleteNotebook);
+route.post('/editnotebook', homeController.editNotebook);
 
 const notebookController = require('./src/controllers/notebookController');
 route.get('/notebook/:id?', notebookController.notebookPage);

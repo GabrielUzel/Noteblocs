@@ -1,16 +1,16 @@
-#wallpaper-list {
+.wallpaper-list {
     display: flex;
     justify-content: flex-start;
     gap: 2.5rem;
 }
 
-#wallpaper-list div {
+.wallpaper-list div {
     position: relative;
     top: 0;
     left: 0;
 }
 
-#wallpaper-list label {
+.wallpaper-list label {
     display: block;
     float: left;
 }
@@ -93,12 +93,4 @@
 .item-entries .edit-button:hover {
     background-color: aqua;
 }
-/* .item-entries nav a {
-    width: 60px;
-    padding: .6rem 0 .6rem .4rem;
-    text-align: left;
-}
 
-.item-entries nav a:hover {
-    background-color: aqua;
-} */

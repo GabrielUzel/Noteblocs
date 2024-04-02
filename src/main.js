@@ -1,7 +1,9 @@
 const navButton = document.getElementById('nav-button');
-const addItemSection = document.getElementsByClassName('add-item-section');
+const addSection = document.getElementById('add-section');
+const editNotebookButton = Array.from(document.querySelectorAll('.edit-notebook-button'));
+const editSection = Array.from(document.querySelectorAll('.edit-section'));
 const newNotebookForm = document.getElementById('new-notebook-form');
-const closeFormButton = document.getElementById('closeFormButton');
+const closeFormButton = Array.from(document.querySelectorAll('.closeFormButton'));
 const markImages = Array.from(document.querySelectorAll('.check-mark-img'));
 const wallpaperImages = Array.from(document.querySelectorAll('.wallpapers'));
 const itemEntriesLi = Array.from(document.querySelectorAll('.entrie'));
@@ -9,19 +11,35 @@ const kebabButton = Array.from(document.querySelectorAll('.kebab-button'));
 const itemNav = Array.from(document.querySelectorAll('.item-nav'));
 
 navButton.addEventListener('click', () => {
-    addItemSection[0].style.setProperty('visibility', 'visible');
+    addSection.style.setProperty('visibility', 'visible');
 });
 
-closeFormButton.addEventListener('click', () => {
-    addItemSection[0].style.setProperty('visibility', 'hidden');
-
-    markImages.map((checkMark) => {
-        checkMark.style.setProperty('visibility', 'hidden');
+editNotebookButton.forEach((button) => {
+    button.addEventListener('click', () => {
+        editSection.map((section) => {
+            if(editNotebookButton.indexOf(button) === editSection.indexOf(section)) {
+                section.style.setProperty('visibility', 'visible');
+            } 
+        });
     });
+});
 
-    wallpaperImages.map((wallpaper) => {
-        wallpaper.classList.remove('selected');
-    });
+closeFormButton.forEach((button) => {
+    button.addEventListener('click', () => {
+        addSection.style.setProperty('visibility', 'hidden');
+    
+        editSection.map((section) => {
+            section.style.setProperty('visibility', 'hidden');
+        });
+
+        markImages.map((checkMark) => {
+            checkMark.style.setProperty('visibility', 'hidden');
+        });
+    
+        wallpaperImages.map((wallpaper) => {
+            wallpaper.classList.remove('selected');
+        });
+    });    
 });
 
 wallpaperImages.forEach((wallpaperIndex1) => {

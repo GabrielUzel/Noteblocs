@@ -134,7 +134,7 @@ h1 {
 
 /* **************************************************************************** */
 
-.add-item-section {
+.send-info-section {
     background-color: #FED86B;
     display: flex;
     flex-direction: column;
@@ -152,7 +152,11 @@ h1 {
     visibility: hidden;
 }
 
-.new-item-form {
+.edit-section {
+    margin-left: 10.5rem;
+}
+
+.send-info-form {
     height: 100%;
     display: flex;
     justify-content: space-between;

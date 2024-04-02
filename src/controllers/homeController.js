@@ -38,3 +38,22 @@ exports.deleteNotebook = async (request, response) => {
         response.render('404');
     }
 }
+
+exports.editNotebook = async (request, response) => {
+    try {
+        const formInfo = JSON.parse(JSON.stringify(request.body))
+        const notebookId = formInfo.id;
+
+        delete formInfo.id;
+
+        const currentWallpaperId = (await Notebook.findById(notebookId)).wallpaperId;
+        if(!formInfo.wallpaperId) formInfo.wallpaperId = currentWallpaperId;
+
+
+        await Notebook.findByIdAndUpdate(notebookId, formInfo);
+        response.redirect('/');
+    } catch(error) {
+        console.log(error);
+        response.render('404');
+    }
+}

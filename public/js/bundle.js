@@ -4,24 +4,40 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 var navButton = document.getElementById('nav-button');
-var addItemSection = document.getElementsByClassName('add-item-section');
+var addSection = document.getElementById('add-section');
+var editNotebookButton = Array.from(document.querySelectorAll('.edit-notebook-button'));
+var editSection = Array.from(document.querySelectorAll('.edit-section'));
 var newNotebookForm = document.getElementById('new-notebook-form');
-var closeFormButton = document.getElementById('closeFormButton');
+var closeFormButton = Array.from(document.querySelectorAll('.closeFormButton'));
 var markImages = Array.from(document.querySelectorAll('.check-mark-img'));
 var wallpaperImages = Array.from(document.querySelectorAll('.wallpapers'));
 var itemEntriesLi = Array.from(document.querySelectorAll('.entrie'));
 var kebabButton = Array.from(document.querySelectorAll('.kebab-button'));
 var itemNav = Array.from(document.querySelectorAll('.item-nav'));
 navButton.addEventListener('click', function () {
-  addItemSection[0].style.setProperty('visibility', 'visible');
+  addSection.style.setProperty('visibility', 'visible');
 });
-closeFormButton.addEventListener('click', function () {
-  addItemSection[0].style.setProperty('visibility', 'hidden');
-  markImages.map(function (checkMark) {
-    checkMark.style.setProperty('visibility', 'hidden');
+editNotebookButton.forEach(function (button) {
+  button.addEventListener('click', function () {
+    editSection.map(function (section) {
+      if (editNotebookButton.indexOf(button) === editSection.indexOf(section)) {
+        section.style.setProperty('visibility', 'visible');
+      }
+    });
   });
-  wallpaperImages.map(function (wallpaper) {
-    wallpaper.classList.remove('selected');
+});
+closeFormButton.forEach(function (button) {
+  button.addEventListener('click', function () {
+    addSection.style.setProperty('visibility', 'hidden');
+    editSection.map(function (section) {
+      section.style.setProperty('visibility', 'hidden');
+    });
+    markImages.map(function (checkMark) {
+      checkMark.style.setProperty('visibility', 'hidden');
+    });
+    wallpaperImages.map(function (wallpaper) {
+      wallpaper.classList.remove('selected');
+    });
   });
 });
 wallpaperImages.forEach(function (wallpaperIndex1) {
