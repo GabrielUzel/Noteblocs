@@ -13,17 +13,17 @@
     <nav id="menu">
         <h1>NoteBlocs</h1>
         <ul>
-            <li>
-                <button id="nav-button" title="Novo bloco">
-                    <img src="/img/plusIcon.png" alt="Imagem de adição no botão">
-                </button>
-            </li>
             <% if(!user) { %>
             <li>
                 <a href="/login">Entrar</a>
                 <% user %>
             </li>
             <% } else { %>
+            <li>
+                <button id="nav-button" title="Novo bloco">
+                    <img src="/img/plusIcon.png" alt="Imagem de adição no botão">
+                </button>
+            </li>
             <li>
                 <a href="/logout">Sair</a>
                 <% user %>
