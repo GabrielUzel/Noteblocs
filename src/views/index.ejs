@@ -16,7 +16,6 @@
             <% if(!user) { %>
             <li>
                 <a href="/login">Entrar</a>
-                <% user %>
             </li>
             <% } else { %>
             <li>
@@ -26,7 +25,6 @@
             </li>
             <li>
                 <a href="/logout">Sair</a>
-                <% user %>
             </li>
             <% } %>
         </ul>
@@ -57,7 +55,7 @@
                     <form class="send-info-form" action="/editnotebook" method="POST">
                         <input type="hidden" id="notebookId" name="id" value="<%= item.id %>">
                         <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
-                        <p>Selecione o papel de parede: </p>
+                        <p>Selecione novo papel de parede: </p>
                         <div class="wallpaper-list">
                             <div>
                                 <input id="radio1<%= notebookList.indexOf(item) %>" class="radio-button" type="radio" value="1" name="wallpaperId">
