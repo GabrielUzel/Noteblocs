@@ -8,10 +8,9 @@ h1 {
 }
 
 .auth-menu {
-    background-color: #E7EAEF;
+    background-color: #E0EAF5;
     display: flex;
     align-items: center;
-    border-radius: 2.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.313rem 0.938rem;
     margin: 7rem 0;
 }
@@ -31,9 +30,9 @@ h1 {
 }
 
 .auth-form input {
-    background-color: #E7EAEF;
+    background-color: #E0EAF5;
     border: none;
-    border-bottom: 1.5px solid #000000;
+    border-bottom: 0.094rem solid #000000;
     height: 1.5rem;
 }
 
@@ -45,9 +44,9 @@ h1 {
 
 .user-button {
     color: #FFFFFF;
-    background-color: #04444E;
+    background-color: #0D2137;
     padding: .8rem 2rem;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     font-weight: bold;
     border: none;
 }
@@ -67,8 +66,8 @@ h1 {
     width: 100%;
     text-align: center;
     padding: .6rem 0;
-    border-radius: 9px;
-    border: 1px solid red;
+    border-radius: 0.563rem;
+    border: 0.063rem solid #FF0000;
 }
 
 .hidden-message {
@@ -131,7 +130,7 @@ h1 {
 /* **************************************************************************** */
 
 .send-info-section {
-    background-color: #ffa04d;
+    background-color: #FFA04D;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -163,7 +162,7 @@ h1 {
     background: none;
     font-size: 2rem;
     border: none;
-    border-bottom: 2px solid #000000;
+    border-bottom: 0.125rem solid #000000;
     height: 2.3rem;
     width: 40rem;
 }
@@ -198,7 +197,7 @@ h1 {
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 0.125rem;
     bottom: 0;
     left: 0;
     background-color: #000000;
@@ -263,9 +262,9 @@ h1 {
 
 .item-entries span {
     display: block;
-    width: 4px;
-    height: 4px;
-    margin: 2px;
+    width: 0.25rem;
+    height: 0.25rem;
+    margin: 0.125rem;
     background-color: #FF8E2B;
     opacity: 1;
     transform-origin: center;
@@ -294,5 +293,5 @@ h1 {
 }
 
 .item-entries .edit-button:hover {
-    background-color: #ffb866;
+    background-color: #FFB866;
 }

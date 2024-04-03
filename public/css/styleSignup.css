@@ -20,13 +20,13 @@ body {
     position: absolute;
     text-align: center;
     font-size: 2rem;
-    padding-bottom: 5px;
-    padding-left: 5px;
+    padding-bottom: 0.313rem;
+    padding-left: 0.313rem;
 }
 
 #back-button:hover {
     background-color: #DDDDDD;
-    color: black;
+    color: #000000;
 }
 
 #signup-menu {
