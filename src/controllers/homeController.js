@@ -49,11 +49,12 @@ exports.editNotebook = async (request, response) => {
         const currentWallpaperId = (await Notebook.findById(notebookId)).wallpaperId;
         if(!formInfo.wallpaperId) formInfo.wallpaperId = currentWallpaperId;
 
+        const currentTitle = (await Notebook.findById(notebookId)).title;
+        if(!formInfo.title) formInfo.title = currentTitle;
 
         await Notebook.findByIdAndUpdate(notebookId, formInfo);
         response.redirect('/');
     } catch(error) {
-        console.log(error);
         response.render('404');
     }
 }

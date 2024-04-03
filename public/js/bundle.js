@@ -5,7 +5,7 @@ var __webpack_exports__ = {};
   \*********************/
 var navButton = document.getElementById('nav-button');
 var addSection = document.getElementById('add-section');
-var editNotebookButton = Array.from(document.querySelectorAll('.edit-notebook-button'));
+var editItemButton = Array.from(document.querySelectorAll('.edit-item-button'));
 var editSection = Array.from(document.querySelectorAll('.edit-section'));
 var newNotebookForm = document.getElementById('new-notebook-form');
 var closeFormButton = Array.from(document.querySelectorAll('.closeFormButton'));
@@ -17,10 +17,10 @@ var itemNav = Array.from(document.querySelectorAll('.item-nav'));
 navButton.addEventListener('click', function () {
   addSection.style.setProperty('visibility', 'visible');
 });
-editNotebookButton.forEach(function (button) {
+editItemButton.forEach(function (button) {
   button.addEventListener('click', function () {
     editSection.map(function (section) {
-      if (editNotebookButton.indexOf(button) === editSection.indexOf(section)) {
+      if (editItemButton.indexOf(button) === editSection.indexOf(section)) {
         section.style.setProperty('visibility', 'visible');
       }
     });

@@ -83,7 +83,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #04444E;
+    background-color: #0D2137;
     position: fixed;
     z-index: 9000;
     top: 0;
@@ -131,7 +131,7 @@ h1 {
 /* **************************************************************************** */
 
 .send-info-section {
-    background-color: #FED86B;
+    background-color: #ffa04d;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -243,5 +243,56 @@ h1 {
     color: #000000;
     text-decoration: none;
     display: block;
+}
+
+.item-entries p {
     text-align: center;
+}
+
+.item-entries .kebab-button {
+    position: absolute;
+    top: 13%;
+    right: 1%;
+    cursor: pointer;
+    width: 1rem;
+    height: 10%;
+    border: none;
+    background: none;
+    display: none;
+}
+
+.item-entries span {
+    display: block;
+    width: 4px;
+    height: 4px;
+    margin: 2px;
+    background-color: #FF8E2B;
+    opacity: 1;
+    transform-origin: center;
+}
+
+.item-entries nav {
+    background-color: #FF8E2B;
+    z-index: 9000;
+    position: absolute;
+    top: 22%;
+    right: -22%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    display: none;
+}
+
+.item-entries .edit-button {
+    background: none;
+    border: none;
+    width: 4rem;
+    padding: .6rem .4rem .6rem .4rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.item-entries .edit-button:hover {
+    background-color: #ffb866;
 }

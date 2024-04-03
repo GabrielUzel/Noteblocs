@@ -12,6 +12,9 @@ route.post('/editnotebook', homeController.editNotebook);
 const notebookController = require('./src/controllers/notebookController');
 route.get('/notebook/:id?', notebookController.notebookPage);
 route.post('/notebook/:id?', notebookController.newNote);
+route.get('/note/:noteid?', notebookController.notePage);
+route.post('/deletenote', notebookController.deleteNote);
+route.post('/editnote', notebookController.editNote);
 
 const loginController = require('./src/controllers/loginController');
 route.get('/login', checkUserLoged, loginController.loginPage);

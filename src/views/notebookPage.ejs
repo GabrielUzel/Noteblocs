@@ -24,12 +24,35 @@
     <section class="item-list">
         <ul class="item-entries">
             <% notesList.forEach((item) => { %>
-                <li>
-                    <a href="">
-                        <img class="item-img" src="/img/imgTeste.jpg" alt="">
-                        <p> <%= item.title %> </p>
-                    </a>                    
+                <li class="entrie">
+                    <a href="/note/?noteid=<%= item.id %>">
+                        <img class="note-img item-img" src="/img/noteImage.png" alt="">
+                    </a>
+                    <p> <%= item.title %> </p>
+                    <button class="kebab-button note-kebab-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>         
+                    <nav class="item-nav">
+                        <button class="edit-item-button edit-button">Editar</button>
+                        <form id="deleteForm" action="/deletenote" method="POST">
+                            <input type="hidden" id="noteId" name="id" value="<%= item.id %>">
+                            <button class="edit-button" type="submit">Excluir</button>
+                        </form>
+                    </nav>           
                 </li>
+                <section class="edit-section send-info-section">
+                    <h1> Editar anotação </h1>
+                    <form class="send-info-form" action="/editnote" method="POST">
+                        <input type="hidden" id="noteId" name="id" value="<%= item.id %>">
+                        <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+                        <div class="form-buttons">
+                            <button type="submit"><div class="underline-animation">Concluído</div></button>
+                            <button class="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
+                        </div>
+                    </form>
+                </section>
             <% }) %>
         </ul>
     </section>

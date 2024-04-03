@@ -1,6 +1,6 @@
 const navButton = document.getElementById('nav-button');
 const addSection = document.getElementById('add-section');
-const editNotebookButton = Array.from(document.querySelectorAll('.edit-notebook-button'));
+const editItemButton = Array.from(document.querySelectorAll('.edit-item-button'));
 const editSection = Array.from(document.querySelectorAll('.edit-section'));
 const newNotebookForm = document.getElementById('new-notebook-form');
 const closeFormButton = Array.from(document.querySelectorAll('.closeFormButton'));
@@ -14,10 +14,10 @@ navButton.addEventListener('click', () => {
     addSection.style.setProperty('visibility', 'visible');
 });
 
-editNotebookButton.forEach((button) => {
+editItemButton.forEach((button) => {
     button.addEventListener('click', () => {
         editSection.map((section) => {
-            if(editNotebookButton.indexOf(button) === editSection.indexOf(section)) {
+            if(editItemButton.indexOf(button) === editSection.indexOf(section)) {
                 section.style.setProperty('visibility', 'visible');
             } 
         });

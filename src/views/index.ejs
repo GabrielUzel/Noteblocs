@@ -35,15 +35,15 @@
                 <li class="entrie">
                     <a href="/notebook/?id=<%= item.id %>">
                         <img class="item-img" src="/img/notebookImage<%=item.wallpaperId %>.jpg" alt="">
-                        <p> <%= item.title %></p>
                     </a>
+                    <p> <%= item.title %></p>
                     <button class="kebab-button">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                     <nav class="item-nav">
-                        <button class="edit-notebook-button edit-button">Editar</button>
+                        <button class="edit-item-button edit-button">Editar</button>
                         <form id="deleteForm" action="/deletenotebook" method="POST">
                             <input type="hidden" id="notebookId" name="id" value="<%= item.id %>">
                             <button class="edit-button" type="submit">Excluir</button>
