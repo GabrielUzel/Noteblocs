@@ -297,3 +297,17 @@ h1 {
 }
 
 /* **************************************************************************** */
+
+.password-input-div {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    align-content: flex-end;
+}
+
+.password-toggle-img {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}

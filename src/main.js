@@ -99,3 +99,4 @@ itemNav.forEach((nav) => {
         nav.style.setProperty('display', 'none');
     });
 });
+ 

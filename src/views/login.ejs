@@ -11,17 +11,21 @@
 
 <body>
     <section id="login-menu" class="auth-menu">
-        <img src="/img/loginImage.png" alt="Image de um bloco de notas">
+        <img id="login-menu-img" src="/img/loginImage.png" alt="Image de um bloco de notas">
         <div class="auth-form-container">
             <h1> Login </h1>
             <form id="login-form" class="auth-form" action="/login" method="POST">
                 <%- include('includes/errorMessages') %>
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
-                <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
+                <div class="password-input-div">
+                    <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
+                    <img class="password-toggle-img" src="img/eyeClose.png" alt="">
+                </div>
                 <button class="user-button" type="submit">Login</button>
                 <a href="/signup">Cadastre-se</a>
             </form>
         </div>
     </section>
+    <script src="/js/passwordToggle.js"></script>
 </body>
 </html>
