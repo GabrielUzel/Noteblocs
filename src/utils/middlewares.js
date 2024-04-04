@@ -1,3 +1,7 @@
+const Notebook = require('../database/models/notebookModel');
+const User = require('../database/models/userModel');
+const Note = require('../database/models/noteModel');
+
 exports.logUser = (request, response, next) => {
     response.locals.user = request.user;
     response.locals.notebookList = [];
@@ -21,4 +25,26 @@ exports.validateCredentials = (userInfo) => {
 exports.checkUserLoged = (request, response, next) => {
     if(request.user) { return response.redirect('/'); }
     next();
+}
+
+exports.checkUserPermission = async (request, response, next) => {
+    try {
+        let correctUserId;
+
+        if(!request.query.noteid) {
+            const correctUserEmail = (await Notebook.findById(request.query.id)).ownerEmail;
+            correctUserId =  (await User.findOne({ email: correctUserEmail })).id;
+        } else {
+            const notebookId = (await Note.findById(request.query.noteid)).notebookId;
+            const correctUserEmail = (await Notebook.findById(notebookId)).ownerEmail;
+            correctUserId =  (await User.findOne({ email: correctUserEmail })).id;
+        }
+
+        if(correctUserId !== request.user.id) throw new Error('Permission not granted');
+        
+        next();
+    } catch(error) {
+        console.log(error);
+        response.render('404');
+    }
 }

@@ -1,7 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const passport = require('passport');
-const { checkUserLoged } = require('./src/utils/middlewares')
+const { checkUserLoged, checkUserPermission } = require('./src/utils/middlewares')
 
 const homeController = require('./src/controllers/homeController');
 route.get('/', homeController.homePage);
@@ -10,9 +10,9 @@ route.post('/deletenotebook', homeController.deleteNotebook);
 route.post('/editnotebook', homeController.editNotebook);
 
 const notebookController = require('./src/controllers/notebookController');
-route.get('/notebook/:id?', notebookController.notebookPage);
+route.get('/notebook/:id?', checkUserPermission, notebookController.notebookPage);
 route.post('/notebook/:id?', notebookController.newNote);
-route.get('/note/:noteid?', notebookController.notePage);
+route.get('/note/:noteid?', checkUserPermission, notebookController.notePage);
 route.post('/deletenote', notebookController.deleteNote);
 route.post('/editnote', notebookController.editNote);
 
