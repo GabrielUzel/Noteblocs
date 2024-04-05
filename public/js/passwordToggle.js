@@ -1,14 +1,18 @@
-const passwordToggleImg = document.querySelector('.password-toggle-img');
-const passwordInput = document.getElementById('password');
+const passwordToggleImg = Array.from(document.querySelectorAll('.password-toggle-img'));
+const passwordInput = Array.from(document.querySelectorAll('.password-input'));
 
-passwordToggleImg.addEventListener('mouseover', (event) => {
-    event.preventDefault();
-    passwordToggleImg.src = '/img/eyeOpen.png';
-    passwordInput.type = 'text';
+passwordToggleImg.forEach((img) => {
+    img.addEventListener('mouseover', (event) => {
+        event.preventDefault();
+        img.src = '/img/eyeOpen.png';
+        passwordInput[passwordToggleImg.indexOf(img)].type = 'text';
+    });
 });
 
-passwordToggleImg.addEventListener('mouseout', (event) => {
-    event.preventDefault();
-    passwordToggleImg.src = '/img/eyeClose.png';
-    passwordInput.type = 'password';
+passwordToggleImg.forEach((img) => {
+    img.addEventListener('mouseout', (event) => {
+        event.preventDefault();
+        img.src = '/img/eyeOpen.png';
+        passwordInput[passwordToggleImg.indexOf(img)].type = 'password';
+    });
 });

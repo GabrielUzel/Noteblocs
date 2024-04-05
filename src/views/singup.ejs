@@ -18,12 +18,19 @@
                 <%- include('includes/errorMessages') %>
                 <input id="username" name="username" type="text" placeholder="Username" autocomplete="off">
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
-                <input id="password" name="password" type="password" placeholder="Senha (8 a 16 caracteres, deve conter número)" autocomplete="off">
+                <div class="password-input-div">
+                    <input class="password-input" id="password" name="password" type="password" placeholder="Senha (8 a 16 caracteres, deve conter número)" autocomplete="off">
+                    <img class="password-toggle-img" src="img/eyeClose.png" alt="">
+                </div>
+                <div class="password-input-div">
+                    <input class="password-input" id="passwordConfirmation" name="passwordConfirmation" type="password" placeholder="Confirmar senha" autocomplete="off">
+                    <img class="password-toggle-img" src="img/eyeClose.png" alt="">
+                </div>
                 <button class="user-button" type="submit">Cadastre-se</button>
             </form>
         </div>
     </section>
     </div>
-    <script src="/js/bundle.js"></script>
+    <script src="/js/passwordToggle.js"></script>
 </body>
 </html>
