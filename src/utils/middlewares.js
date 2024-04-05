@@ -20,6 +20,8 @@ exports.validateCredentials = (userInfo) => {
 
     const regexPassword = /^(?=.*[0-9])(?=.*[a-z])(?!.* ).{8,16}$/;
     if(!regexPassword.test(userInfo['password'])) throw new Error('Senha inválida');
+
+    if(userInfo['password'] !== userInfo['passwordConfirmation']) throw new Error('Insira senhas iguais nos campos de senha');
 }
 
 exports.checkUserLoged = (request, response, next) => {

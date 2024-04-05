@@ -11,10 +11,11 @@ exports.createUser = async (request, response, next) => {
         const userInfo = JSON.parse(JSON.stringify(request.body));
         validateCredentials(userInfo);
 
-        const user = await User.findOne({ email: userInfo['email'] });
+        const user = await User.findOne({ email: userInfo.email });
         if(user) throw new Error('Esse email já foi utilizado por outro usuário');
 
-        userInfo['password'] = await hashPassword(userInfo['password']);
+        userInfo['password'] = await hashPassword(userInfo.password);
+        delete userInfo.passwordConfirmation;
         await User.create(userInfo);
 
         response.redirect('/signup/confirm');
