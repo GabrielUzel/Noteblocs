@@ -1,18 +1,52 @@
 const { hashPassword } = require('../utils/hashPassword');
 const User = require('../database/models/userModel');
 const { validateCredentials } = require('../utils/middlewares');
+const { generateToken, getMailOptions, getTransport } = require("../../service");
 
 exports.signupPage = (request, response) => {
     response.render('singup');
 }
 
-exports.createUser = async (request, response, next) => {
+exports.validateUserCredentials = async (request, response, next) => {
     try {
         const userInfo = JSON.parse(JSON.stringify(request.body));
         validateCredentials(userInfo);
 
         const user = await User.findOne({ email: userInfo.email });
         if(user) throw new Error('Esse email já foi utilizado por outro usuário');
+
+        next();
+    } catch(error) {
+        request.flash('error', error.message);
+        request.session.save(() => { response.redirect('back'); });
+    }
+}
+
+exports.validateEmail = (request, response, next) => {
+    try {
+        const { email } = request.body;
+    
+        const token = generateToken(email);
+        const link = `http://localhost:5000/signup/verify?token=${token}`;
+    
+        const mailRequest = getMailOptions(email, link);
+    
+        return getTransport().sendMail(mailRequest, (error) => {
+            if(error) {
+                throw new Error('Não foi possível enviar email');
+            } else {
+                next();
+            }
+        });
+    } catch(error) {
+        request.flash('error', error.message);
+        request.session.save(() => { response.redirect('back'); });
+    }
+}
+
+exports.createUser = async (request, response, next) => {
+    try {
+        const userInfo = JSON.parse(JSON.stringify(request.body));
 
         userInfo['password'] = await hashPassword(userInfo.password);
         delete userInfo.passwordConfirmation;

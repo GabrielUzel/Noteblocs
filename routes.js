@@ -27,7 +27,7 @@ route.post('/login', passport.authenticate('local', {
 
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', checkUserLoged, signupController.signupPage);
-route.post('/signup', signupController.createUser);
+route.post('/signup', signupController.validateUserCredentials, signupController.validateEmail, signupController.createUser);
 
 const signupConfirmationController = require('./src/controllers/signupConfirmationController');
 route.get('/signup/confirm', signupConfirmationController.signupConfirmationPage);
