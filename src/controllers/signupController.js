@@ -2,6 +2,7 @@ const { hashPassword } = require('../utils/hashPassword');
 const User = require('../database/models/userModel');
 const { validateCredentials } = require('../utils/middlewares');
 const { generateToken, getMailOptions, getTransport } = require("../../service");
+const jwt = require("jsonwebtoken");
 
 exports.signupPage = (request, response) => {
     response.render('singup');
@@ -35,7 +36,7 @@ exports.validateEmail = (request, response, next) => {
             if(error) {
                 throw new Error('Não foi possível enviar email');
             } else {
-                next();
+                response.render('verifyEmail');
             }
         });
     } catch(error) {
@@ -45,16 +46,24 @@ exports.validateEmail = (request, response, next) => {
 }
 
 exports.createUser = async (request, response, next) => {
-    try {
-        const userInfo = JSON.parse(JSON.stringify(request.body));
+    const userInfo =  request.app.locals.userTemplate;
 
-        userInfo['password'] = await hashPassword(userInfo.password);
+    try {
+        const { token } = request.query;
+        if(!token) throw new Error('Invalid user token');
+
+        const decodedToken = jwt.verify(token, process.env.JWTSECRETKEY);
+        if(!decodedToken.hasOwnProperty("email") || !decodedToken.hasOwnProperty("expirationDate")) throw new Error('Invalid credentials');
+        
+        const { expirationDate } = decodedToken;
+        if(expirationDate < new Date()) throw new Error('Token has expired');
+
+        userInfo.password = hashPassword(userInfo.password);
         delete userInfo.passwordConfirmation;
         await User.create(userInfo);
 
         response.redirect('/signup/confirm');
     } catch(error) {
-        request.flash('error', error.message);
-        request.session.save(() => { response.redirect('back'); });
+        response.render('404');
     }
 }

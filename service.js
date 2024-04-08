@@ -19,8 +19,8 @@ exports.generateToken = (email) => {
 exports.getMailOptions = (email, link) => {
     const body = `
     <h2>Olá<h2>
-    <p>Aqui está o link para confirmar o seu email:<p>
-    <p>${link}</p>`;
+    <p>Acesse o <a href="${link}">link</a> para confirmar o seu email<p>
+    `
   
     return {
       body,
