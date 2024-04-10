@@ -8,6 +8,10 @@ exports.signupPage = (request, response) => {
     response.render('singup');
 }
 
+exports.signupConfirmationPage = (request, response) => {
+    response.render('signupConfirmation');
+}
+
 exports.validateUserCredentials = async (request, response, next) => {
     try {
         const userInfo = JSON.parse(JSON.stringify(request.body));
@@ -23,7 +27,7 @@ exports.validateUserCredentials = async (request, response, next) => {
     }
 }
 
-exports.validateEmail = (request, response, next) => {
+exports.validateEmail = (request, response) => {
     try {
         const { email } = request.body;
     
@@ -65,5 +69,27 @@ exports.createUser = async (request, response, next) => {
         response.redirect('/signup/confirm');
     } catch(error) {
         response.render('404');
+    }
+}
+
+exports.resendEmail = (request, response) => {
+    try {
+        const { email } = request.app.locals.emailTemplate;
+    
+        const token = generateToken(email);
+        const link = `http://localhost:5000/signup/verify?token=${token}`;
+    
+        const mailRequest = getMailOptions(email, link);
+    
+        return getTransport().sendMail(mailRequest, (error) => {
+            if(error) {
+                throw new Error('Não foi possível enviar email');
+            } else {
+                response.render('verifyEmail');
+            }
+        });
+    } catch(error) {
+        request.flash('error', error.message);
+        request.session.save(() => { response.redirect('back'); });
     }
 }

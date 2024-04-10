@@ -2,7 +2,7 @@ const express = require('express');
 const route = express.Router();
 const passport = require('passport');
 const { checkUserLoged, checkUserPermission } = require('./src/utils/middlewares');
-const { createUserTemplate } = require('./src/utils/middlewares');
+const { createUserTemplate, createEmailTemplate } = require('./src/utils/middlewares');
 
 const homeController = require('./src/controllers/homeController');
 route.get('/', homeController.homePage);
@@ -28,11 +28,10 @@ route.post('/login', passport.authenticate('local', {
 
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', checkUserLoged, signupController.signupPage);
-route.post('/signup', signupController.validateUserCredentials, createUserTemplate, signupController.validateEmail);
+route.post('/signup', createEmailTemplate, signupController.validateUserCredentials, createUserTemplate, signupController.validateEmail);
 route.get('/signup/verify:token?', signupController.createUser);
-
-const signupConfirmationController = require('./src/controllers/signupConfirmationController');
-route.get('/signup/confirm', signupConfirmationController.signupConfirmationPage);
+route.get('/signup/confirm', signupController.signupConfirmationPage);
+route.post('/signup/confirm', signupController.resendEmail);
 
 const logoutController = require('./src/controllers/logoutController');
 route.get('/logout', logoutController.logOutUser);

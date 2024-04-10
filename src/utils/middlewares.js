@@ -14,6 +14,11 @@ exports.createUserTemplate = (request, response, next) => {
     next();
 }
 
+exports.createEmailTemplate = (request, response, next) => {
+    response.app.locals.emailTemplate = request.body;
+    next();
+}
+
 exports.validateCredentials = (userInfo) => {
     if(!userInfo['username'] || !userInfo['email'] || !userInfo['password']) throw new Error('Todos os campos devem ser preenchidos');
 
