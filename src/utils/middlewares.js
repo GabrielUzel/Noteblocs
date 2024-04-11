@@ -1,6 +1,7 @@
 const Notebook = require('../database/models/notebookModel');
 const User = require('../database/models/userModel');
 const Note = require('../database/models/noteModel');
+const { generateToken, getMailOptions, getTransport } = require("../../service");
 
 exports.logUser = (request, response, next) => {
     response.locals.user = request.user;
@@ -56,7 +57,92 @@ exports.checkUserPermission = async (request, response, next) => {
         
         next();
     } catch(error) {
-        console.log(error);
         response.render('404');
+    }
+}
+
+exports.validateEmail = (request, response) => {
+    try {
+        const { email } = request.body;
+    
+        const token = generateToken(email);
+        const link = `http://localhost:5000/signup/verify?token=${token}`;
+    
+        const mailRequest = getMailOptions(email, link);
+    
+        return getTransport().sendMail(mailRequest, (error) => {
+            if(error) {
+                throw new Error('Não foi possível enviar email');
+            } else {
+                response.render('verifyEmail');
+            }
+        });
+    } catch(error) {
+        request.flash('error', error.message);
+        request.session.save(() => { response.redirect('back'); });
+    }
+}
+
+exports.resendEmail = (request, response) => {
+    try {
+        const { email } = request.app.locals.emailTemplate;
+    
+        const token = generateToken(email);
+        const link = `http://localhost:5000/signup/verify/?token=${token}`;
+    
+        const mailRequest = getMailOptions(email, link);
+    
+        return getTransport().sendMail(mailRequest, (error) => {
+            if(error) {
+                throw new Error('Não foi possível enviar email');
+            } else {
+                response.render('verifyEmail');
+            }
+        });
+    } catch(error) {
+        response.render(404);
+    }
+}
+
+exports.validateEmailForPassword = (request, response) => {
+    try {
+        const { email } = request.body;
+    
+        const token = generateToken(email);
+        const link = `http://localhost:5000/forgotpassword/verify/?token=${token}`;
+    
+        const mailRequest = getMailOptions(email, link);
+    
+        return getTransport().sendMail(mailRequest, (error) => {
+            if(error) {
+                throw new Error('Não foi possível enviar email');
+            } else {
+                response.render('verifyEmailForPassword');
+            }
+        });
+    } catch(error) {
+        request.flash('error', error.message);
+        request.session.save(() => { response.redirect('back'); });
+    }
+}
+
+exports.resendEmailForPassword = (request, response) => {
+    try {
+        const { email } = request.app.locals.emailTemplate;
+    
+        const token = generateToken(email);
+        const link = `http://localhost:5000/forgotpassword/verify/?token=${token}`;
+    
+        const mailRequest = getMailOptions(email, link);
+    
+        return getTransport().sendMail(mailRequest, (error) => {
+            if(error) {
+                throw new Error('Não foi possível enviar email');
+            } else {
+                response.render('verifyEmailForPassword');
+            }
+        });
+    } catch(error) {
+        response.render(404);
     }
 }

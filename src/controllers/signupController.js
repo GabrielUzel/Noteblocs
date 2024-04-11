@@ -1,7 +1,6 @@
 const { hashPassword } = require('../utils/hashPassword');
 const User = require('../database/models/userModel');
 const { validateCredentials } = require('../utils/middlewares');
-const { generateToken, getMailOptions, getTransport } = require("../../service");
 const jwt = require("jsonwebtoken");
 
 exports.signupPage = (request, response) => {
@@ -21,28 +20,6 @@ exports.validateUserCredentials = async (request, response, next) => {
         if(user) throw new Error('Esse email já foi utilizado por outro usuário');
 
         next();
-    } catch(error) {
-        request.flash('error', error.message);
-        request.session.save(() => { response.redirect('back'); });
-    }
-}
-
-exports.validateEmail = (request, response) => {
-    try {
-        const { email } = request.body;
-    
-        const token = generateToken(email);
-        const link = `http://localhost:5000/signup/verify?token=${token}`;
-    
-        const mailRequest = getMailOptions(email, link);
-    
-        return getTransport().sendMail(mailRequest, (error) => {
-            if(error) {
-                throw new Error('Não foi possível enviar email');
-            } else {
-                response.render('verifyEmail');
-            }
-        });
     } catch(error) {
         request.flash('error', error.message);
         request.session.save(() => { response.redirect('back'); });
@@ -69,27 +46,5 @@ exports.createUser = async (request, response) => {
         response.redirect('/signup/confirm');
     } catch(error) {
         response.render('404');
-    }
-}
-
-exports.resendEmail = (request, response) => {
-    try {
-        const { email } = request.app.locals.emailTemplate;
-    
-        const token = generateToken(email);
-        const link = `http://localhost:5000/signup/verify?token=${token}`;
-    
-        const mailRequest = getMailOptions(email, link);
-    
-        return getTransport().sendMail(mailRequest, (error) => {
-            if(error) {
-                throw new Error('Não foi possível enviar email');
-            } else {
-                response.render('verifyEmail');
-            }
-        });
-    } catch(error) {
-        console.log(error);
-        response.render(404);
     }
 }

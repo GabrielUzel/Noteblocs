@@ -29,4 +29,4 @@ exports.getMailOptions = (email, link) => {
       html: body,
       from: process.env.EMAIL_ADDRESS,
     };
-  };
+};

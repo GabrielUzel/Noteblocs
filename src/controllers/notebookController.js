@@ -22,7 +22,6 @@ exports.newNote = async (request, response) => {
         await Note.create(noteInfo);
         response.redirect('back');
     } catch(error) {
-        console.log(error);
         response.render('404');
     }
 }

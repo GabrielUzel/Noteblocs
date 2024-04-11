@@ -3,6 +3,7 @@ const route = express.Router();
 const passport = require('passport');
 const { checkUserLoged, checkUserPermission } = require('./src/utils/middlewares');
 const { createUserTemplate, createEmailTemplate } = require('./src/utils/middlewares');
+const { validateEmail, validateEmailForPassword, resendEmail, resendEmailForPassword } = require('./src/utils/middlewares');
 
 const homeController = require('./src/controllers/homeController');
 route.get('/', homeController.homePage);
@@ -28,10 +29,18 @@ route.post('/login', passport.authenticate('local', {
 
 const signupController = require('./src/controllers/signupController');
 route.get('/signup', checkUserLoged, signupController.signupPage);
-route.post('/signup', createEmailTemplate, signupController.validateUserCredentials, createUserTemplate, signupController.validateEmail);
-route.get('/signup/verify:token?', signupController.createUser);
+route.post('/signup', createEmailTemplate, signupController.validateUserCredentials, createUserTemplate, validateEmail);
+route.get('/signup/verify/:token?', signupController.createUser);
 route.get('/signup/confirm', signupController.signupConfirmationPage);
-route.post('/resendemail', signupController.resendEmail);
+route.post('/resendemail', resendEmail);
+
+const forgotPasswordController = require('./src/controllers/forgotPasswordController');
+route.get('/forgotpassword', forgotPasswordController.forgotPasswordPage);
+route.post('/forgotpassword', createEmailTemplate, createUserTemplate, validateEmailForPassword);
+route.get('/forgotpassword/verify/:token?', forgotPasswordController.forgotPasswordPageWithToken);
+route.post('/forgotpassword/verify/:token?', forgotPasswordController.editPassword);
+route.get('/editpassword/confirm', forgotPasswordController.editPasswordConfirmationPage);
+route.post('/resendemailforpassword', resendEmailForPassword);
 
 const logoutController = require('./src/controllers/logoutController');
 route.get('/logout', logoutController.logOutUser);
