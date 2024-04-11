@@ -4,9 +4,9 @@ const Note = require('../database/models/noteModel');
 exports.homePage = async (request, response) => {
     if(request.user) {
         const notebookList = await Notebook.find({ ownerEmail: request.user.email });
-        response.render('index', { notebookList: notebookList });
+        response.render('home', { notebookList: notebookList });
     } else {
-        response.render('index');
+        response.render('home');
     }
 }
 
