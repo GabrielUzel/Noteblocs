@@ -49,7 +49,7 @@ exports.validateEmail = (request, response) => {
     }
 }
 
-exports.createUser = async (request, response, next) => {
+exports.createUser = async (request, response) => {
     const userInfo =  request.app.locals.userTemplate;
 
     try {
@@ -89,7 +89,7 @@ exports.resendEmail = (request, response) => {
             }
         });
     } catch(error) {
-        request.flash('error', error.message);
-        request.session.save(() => { response.redirect('back'); });
+        console.log(error);
+        response.render(404);
     }
 }

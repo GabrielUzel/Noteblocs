@@ -31,7 +31,7 @@ route.get('/signup', checkUserLoged, signupController.signupPage);
 route.post('/signup', createEmailTemplate, signupController.validateUserCredentials, createUserTemplate, signupController.validateEmail);
 route.get('/signup/verify:token?', signupController.createUser);
 route.get('/signup/confirm', signupController.signupConfirmationPage);
-route.post('/signup/confirm', signupController.resendEmail);
+route.post('/resendemail', signupController.resendEmail);
 
 const logoutController = require('./src/controllers/logoutController');
 route.get('/logout', logoutController.logOutUser);
