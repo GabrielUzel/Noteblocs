@@ -11,7 +11,7 @@
 
 <body>
     <nav id="menu">
-        <h1>NoteBlocs</h1>
+        <a href="/"><h1>NoteBlocs</h1></a>
         <ul>
             <% if(!user) { %>
             <li>
@@ -24,7 +24,7 @@
                 </button>
             </li>
             <li>
-                <a href="/logout">Sair</a>
+                <a class="menuItem" href="/logout">Sair</a>
             </li>
             <% } %>
         </ul>
@@ -45,15 +45,15 @@
                     <nav class="item-nav">
                         <button class="edit-item-button edit-button">Editar</button>
                         <form id="deleteForm" action="/deletenotebook" method="POST">
-                            <input type="hidden" id="notebookId" name="id" value="<%= item.id %>">
+                            <input type="hidden" class="notebookId" name="id" value="<%= item.id %>">
                             <button class="edit-button" type="submit">Excluir</button>
                         </form>
                     </nav>
                 </li>
-                <section class="edit-section send-info-section">
-                    <h1> Editar caderno de anotações </h1>
+                <div class="edit-section send-info-section">
+                    <h2> Editar caderno de anotações </h1>
                     <form class="send-info-form" action="/editnotebook" method="POST">
-                        <input type="hidden" id="notebookId" name="id" value="<%= item.id %>">
+                        <input type="hidden" class="notebookId" name="id" value="<%= item.id %>">
                         <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
                         <p>Selecione novo papel de parede: </p>
                         <div class="wallpaper-list">
@@ -88,7 +88,7 @@
                             <button class="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
                         </div>
                     </form>
-                </section>
+                </div>
             <% }) %>
         </ul>
     </section>
