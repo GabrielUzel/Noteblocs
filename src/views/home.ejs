@@ -11,11 +11,11 @@
 
 <body>
     <nav id="menu">
-        <a href="/"><h1>NoteBlocs</h1></a>
+        <a id="menu-title" href="/"><h1>NoteBlocs</h1></a>
         <ul>
             <% if(!user) { %>
             <li>
-                <a href="/login">Entrar</a>
+                <a class="menu-item-with-padding" href="/login">Entrar</a>
             </li>
             <% } else { %>
             <li>
@@ -24,7 +24,7 @@
                 </button>
             </li>
             <li>
-                <a class="menuItem" href="/logout">Sair</a>
+                <a class="menu-item-with-padding" href="/logout">Sair</a>
             </li>
             <% } %>
         </ul>

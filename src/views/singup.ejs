@@ -10,11 +10,10 @@
 <body>
     <button id="back-button" onclick="history.back()">&#8249;</button>
 
-    <div id="signup-container">
-        <section id="signup-menu" class="auth-menu">
-        <div class="auth-form-container">
-            <h1> Cadastre-se </h1>
-            <form id="signup-form" class="auth-form" action="/signup" method="POST">
+    <section id="background-image">
+        <div class="auth-menu">
+            <h1>Cadastre-se</h1>
+            <form class="auth-form" action="/signup" method="POST">
                 <%- include('includes/errorMessages') %>
                 <input id="username" name="username" type="text" placeholder="Username" autocomplete="off">
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
@@ -30,7 +29,6 @@
             </form>
         </div>
     </section>
-    </div>
     <script src="/js/passwordToggle.js"></script>
 </body>
 </html>

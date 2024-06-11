@@ -10,23 +10,22 @@
 </head>
 
 <body>
-    <section id="login-menu" class="auth-menu">
-        <img id="login-menu-img" src="/img/loginImage.png" alt="Image de um bloco de notas">
-        <div class="auth-form-container">
-            <h1> Login </h1>
-            <form id="login-form" class="auth-form" action="/login" method="POST">
-                <%- include('includes/errorMessages') %>
+    <section id="background-image">
+        <div class="auth-menu">
+            <h1>Login</h1>
+            <%- include('includes/errorMessages') %>
+            <form class="auth-form" action="/login" method="POST">
                 <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
                 <div class="password-input-div">
                     <input class="password-input" id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
                     <img class="password-toggle-img" src="img/eyeClose.png" alt="">
                 </div>
                 <button class="user-button" type="submit">Login</button>
-                <div class="extra-links">
-                    <a href="/forgotpassword">Esqueci minha senha</a>
-                    <a href="/signup">Cadastre-se</a>
-                </div>
             </form>
+            <div class="extra-links">
+                <a href="/forgotpassword">Esqueci minha senha</a>
+                <a href="/signup">Cadastre-se</a>
+            </div>
         </div>
     </section>
     <script src="/js/passwordToggle.js"></script>

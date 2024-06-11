@@ -1,47 +1,11 @@
-html {
+html, body {
     height: 100%;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    height: inherit;
+.auth-form input {
+    width: 22rem;
 }
 
-#login-menu {
-    justify-content: center;
-    gap: 6rem;
-    padding: 0 2rem;
-}
-
-#login-menu-img {
-    height: 15rem;
-    width: 15rem;
-}
-
-#login-form {
-    gap: 1.7rem;
-}
-
-#login-form input {
-    width: 15rem;
-}
-
-#login-form a {
-    font-size: 1rem;
-    color: #000000;
-    text-decoration: none;
-}
-
-#login-form a:hover {
-    text-decoration: underline;
-}
-
-/* **************************************************************************** */
-
-.extra-links {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-right: 4rem;
+.auth-form {
+    margin-bottom: 3rem;
 }

@@ -7,19 +7,29 @@ h1, h2 {
     font-size: 2rem;
 }
 
-.auth-menu {
-    background-color: #E0EAF5;
-    display: flex;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.2rem 0.7rem;
-    margin: 7rem 0;
+/* **************************************************************************** */
+
+#background-image {
+    background-image: url(../img/authBackground.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.auth-form-container {
+.auth-menu {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    background-color: white;
+    width: 25%;
+    position: fixed;
+    top: 19%;
+    left: 37%;
+    border-radius: 20px;
 }
 
 .auth-form {
@@ -27,10 +37,10 @@ h1, h2 {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
 }
 
 .auth-form input {
-    background-color: #E0EAF5;
     border: none;
     border-bottom: 0.094rem solid #000000;
     height: 1.5rem;
@@ -63,9 +73,8 @@ h1, h2 {
 
 .errorMessage {
     background: rgb(255, 51, 61, 0.7);
-    width: 100%;
     text-align: center;
-    padding: .6rem 0;
+    padding: .6rem .8rem;
     border-radius: 0.563rem;
     border: 0.063rem solid #FF0000;
 }
@@ -73,6 +82,57 @@ h1, h2 {
 .hidden-message {
     min-height: 1.18rem;
     visibility: hidden;
+}
+
+.extra-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.auth-menu a {
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth-menu a:hover {
+    text-decoration: underline;
+}
+
+#back-button {
+    background-color: #FFFFFF;
+    border: none;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    height: 3.2rem;
+    width: 2.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 0.313rem;
+    padding-left: 0.313rem;
+}
+
+#back-button:hover {
+    background-color: #DDDDDD;
+    color: #000000;
+}
+
+.password-input-div {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    align-content: flex-end;
+}
+
+.password-toggle-img {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }
 
 /* **************************************************************************** */
@@ -87,14 +147,22 @@ h1, h2 {
     z-index: 9000;
     top: 0;
     width: 100%;
-    padding-left: 3rem;
+}
+
+#menu-title {
+    margin-left: 3rem;
+    padding: .8rem 0;
 }
 
 #menu ul {
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
-    margin-right: 3rem;
+    padding-inline-start: 0;
+}
+
+.menu-item-with-padding {
+    padding: 1.081rem 2rem;
 }
 
 #menu a {
@@ -102,10 +170,6 @@ h1, h2 {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 1.5rem;
-}
-
-.menuItem {
-    padding: 1rem 5rem;
 }
 
 #nav-button {
@@ -141,9 +205,8 @@ h1, h2 {
     gap: 2rem;
     position: fixed;
     z-index: 9000;
-    top: 0;
-    margin-top: 5rem;
-    margin-left: 18rem;
+    top: 25%;
+    left: 30%;
     padding: 3rem;
     width: 45rem;
     height: 25rem;
@@ -300,17 +363,3 @@ h1, h2 {
 }
 
 /* **************************************************************************** */
-
-.password-input-div {
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
-    align-content: flex-end;
-}
-
-.password-toggle-img {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
