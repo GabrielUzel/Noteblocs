@@ -6,27 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="/css/styleNote.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <title>NoteBlocs</title>
 </head>
 
 <body>
+    <nav id="menu">
+        <a id="menu-title" href="/"><h1>NoteBlocs</h1></a>
+        <ul>
+            <li>
+                <button id="nav-button">Salvar</button>
+            </li>
+        </ul>
+    </nav>
     <div id="main-content">
         <section id="action-buttons-field">
-            <button>font-size</button>
-            <button id="bold">N</button>
-            <button id="italic">I</button>
-            <button id="underline">U</button>
-            <button id="background-color">T</button>
-            <button id="font-color">T</button>
-            <button id="uppercase">A</button>
-            <button id="uppercase">A</button>
-            <button id="lowercase">a</button>
+            <select id="fontName" class="adv-option-button"></select>
+            <select id="fontSize" class="adv-option-button"></select>
+            <input type="color" id="font-color" class="adv-option-button"/>
+            <input type="color" id="background-color" class="adv-option-button"/>
+
+            <button id="bold" title="Negrito"><i class="fa-solid fa-bold"></i></button>
+            <button id="italic" title="Itálico"><i class="fa-solid fa-italic"></i></button>
+            <button id="underline" title="Underline"><i class="fa-solid fa-underline"></i></button>
+
+            <button id="ordered-list" title="Lista ordenada">
+                <div class="fa-solid fa-list-ol"></div>
+            </button>
+            <button id="unordered-list" title="Lista desordenada">
+                <i class="fa-solid fa-list"></i>
+            </button>
+
+            <button id="justificar-esquerda">
+                <i class="fa-solid fa-align-left"></i>
+            </button>
+            <button id="justificar-centro">
+                <i class="fa-solid fa-align-center"></i>
+            </button>
+            <button id="justificar-direita">
+                <i class="fa-solid fa-align-right"></i>
+            </button>
+            <button id="justificar">
+                <i class="fa-solid fa-align-justify"></i>
+            </button>
         </section>
-        <section>
-            <textarea name="note-content" id="note-text-area" placeholder="Digite seu texto aqui">
-    
-            </textarea>
+        <section id="text-field">
+            <textarea name="note-content" id="note-text-area" placeholder="Digite seu texto aqui"></textarea>
         </section>
     </div>
+    </script>
 </body>
 </html>
