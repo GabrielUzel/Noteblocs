@@ -15,7 +15,7 @@
         <a id="menu-title" href="/"><h1>NoteBlocs</h1></a>
         <ul>
             <li>
-                <button id="nav-button">Salvar</button>
+                <button id="nav-button" onclick="postFunction()">Salvar</button>
             </li>
         </ul>
     </nav>
@@ -51,9 +51,9 @@
             </button>
         </section>
         <section id="text-field">
-            <textarea name="note-content" id="note-text-area" placeholder="Digite seu texto aqui"></textarea>
+            <textarea name="note-content" id="note-text-area" placeholder="Digite seu texto aqui"><%= note.content %></textarea>
         </section>
     </div>
-    </script>
+    <script src="/js/postFunction.js"></script>
 </body>
 </html>

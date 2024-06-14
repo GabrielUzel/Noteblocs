@@ -6,8 +6,10 @@ exports.notebookPage = async (request, response) => {
     response.render('notebookPage', { notesList: notesList });
 }
 
-exports.notePage = (request, response) => {
-    response.render('notePage');
+exports.notePage = async (request, response) => {
+    const note = await Note.findById(request.query.noteid);
+
+    response.render('notePage', { note: note });
 }
 
 exports.newNote = async (request, response) => {
@@ -52,4 +54,18 @@ exports.editNote = async (request, response) => {
     } catch(error) {
         response.render('404');
     }
+}
+
+exports.updateNote = async (request, response) => {
+    try {
+        console.log(request.body.noteid);
+        
+        const noteNewInfo = request.body;
+        const noteId = request.body.noteid;
+
+        await Note.findByIdAndUpdate(noteId, noteNewInfo);
+    } catch(error) {
+        response.render('404');
+    }
+    // console.log(request.body);
 }
