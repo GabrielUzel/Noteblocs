@@ -57,9 +57,7 @@ exports.editNote = async (request, response) => {
 }
 
 exports.updateNote = async (request, response) => {
-    try {
-        console.log(request.body.noteid);
-        
+    try {        
         const noteNewInfo = request.body;
         const noteId = request.body.noteid;
 
@@ -67,5 +65,4 @@ exports.updateNote = async (request, response) => {
     } catch(error) {
         response.render('404');
     }
-    // console.log(request.body);
 }
