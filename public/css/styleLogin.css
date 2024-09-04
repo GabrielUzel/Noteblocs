@@ -1,0 +1,11 @@
+html, body {
+    height: 100%;
+}
+
+.auth-form input {
+    width: 22rem;
+}
+
+.auth-form {
+    margin-bottom: 3rem;
+}

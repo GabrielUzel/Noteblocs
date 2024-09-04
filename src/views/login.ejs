@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleLogin.css" type="text/css" media="all">
+    <title>NoteBlocs</title>
+</head>
+
+<body>
+    <section id="background-image">
+        <div class="auth-menu">
+            <h1>Login</h1>
+            <%- include('includes/errorMessages') %>
+            <form class="auth-form" action="/login" method="POST">
+                <input id="email" name="email" type="text" placeholder="Email" autocomplete="on">
+                <div class="password-input-div">
+                    <input id="password" name="password" type="password" placeholder="Senha" autocomplete="off">
+                    <img id="password-toggle-img" src="img/eyeClose.png" alt="">
+                </div>
+                <button class="user-button" type="submit">Login</button>
+            </form>
+            <div class="extra-links">
+                <a href="/forgotpassword">Esqueci minha senha</a>
+                <a href="/signup">Cadastre-se</a>
+            </div>
+        </div>
+    </section>
+    <script src="/js/passwordToggle.js"></script>
+</body>
+</html>

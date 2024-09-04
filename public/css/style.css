@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    font-family: optima, sans-serif;
+}
+
+h1, h2 {
+    font-size: 2rem;
+}
+
+/* **************************************************************************** */
+
+#background-image {
+    background-image: url(../img/authBackground.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.auth-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 2rem;
+    background-color: white;
+    width: 25%;
+    position: fixed;
+    top: 19%;
+    left: 37%;
+    border-radius: 1.25rem;
+}
+
+.auth-form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.auth-form input {
+    border: none;
+    border-bottom: 0.094rem solid #000000;
+    height: 1.5rem;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-image: linear-gradient(to right, #037ade, #009bef, #00b8ea, #00d0d4, #03e5b7);
+    border-image-slice: 1;
+}
+
+.user-button {
+    color: #FFFFFF;
+    background-color: #0D2137;
+    padding: .8rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: bold;
+    border: none;
+}
+
+.user-button:hover {
+    cursor: pointer;
+}
+
+.user-button:hover, 
+.user-button:focus {
+    box-shadow: inset 0 0 0 2em rgb(255, 255, 255, 0.2); 
+    outline: none;
+}
+
+.errorMessage {
+    background: rgb(255, 51, 61, 0.7);
+    text-align: center;
+    padding: .6rem .8rem;
+    border-radius: 0.563rem;
+    border: 0.063rem solid #FF0000;
+}
+
+.hidden-message {
+    min-height: 1.18rem;
+    visibility: hidden;
+}
+
+.extra-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.auth-menu a {
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+}
+
+.auth-menu a:hover {
+    text-decoration: underline;
+}
+
+#back-button {
+    background-color: #FFFFFF;
+    border: none;
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    height: 3.2rem;
+    width: 2.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 0.313rem;
+    padding-left: 0.313rem;
+}
+
+#back-button:hover {
+    background-color: #DDDDDD;
+    color: #000000;
+}
+
+.password-input-div {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    align-content: flex-end;
+}
+
+#password-toggle-img {
+    position: absolute;
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+}
+
+/* **************************************************************************** */
+
+#menu {
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0D2137;
+    position: fixed;
+    z-index: 9000;
+    top: 0;
+    width: 100%;
+}
+
+#menu-title {
+    margin-left: 3rem;
+    padding: .8rem 0;
+}
+
+#menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-inline-start: 0;
+}
+
+.menu-item-with-padding {
+    padding: 1.081rem 2rem;
+}
+
+#menu a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+#nav-button {
+    padding: 1.1rem 2.8rem;
+    background: none;
+    border: none;
+    height: 100%;
+}
+
+#nav-button:hover, 
+#nav-button:focus {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+#menu li:hover {
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+#menu img {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+/* **************************************************************************** */
+
+.send-info-section {
+    background-color: #FFA04D;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    position: fixed;
+    z-index: 9000;
+    top: 25%;
+    left: 30%;
+    padding: 3rem;
+    width: 45rem;
+    height: 25rem;
+    visibility: hidden;
+}
+
+.send-info-form {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.title-input {
+    background: none;
+    font-size: 2rem;
+    border: none;
+    border-bottom: 0.125rem solid #000000;
+    height: 2.3rem;
+    width: 40rem;
+}
+
+.title-input:focus {
+    outline: none;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.form-buttons button {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+}
+
+.form-buttons button:hover {
+    cursor: pointer;
+}
+
+.underline-animation {
+    position: relative;
+}
+
+.underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.125rem;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.form-buttons button:hover .underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* **************************************************************************** */
+
+.item-list {
+    margin-top: 3rem;
+    padding: 3rem 5rem 5rem 5rem;
+    height: 100%;
+}
+
+.item-entries {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.item-entries li {
+    position: relative;
+}
+
+.item-img {
+    position: relative;
+    width: 12rem;
+    height: 14rem;
+    padding-top: 2.2rem;
+}
+
+.item-entries a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+}
+
+.item-entries .item-title {
+    text-align: center;
+}
+
+.item-entries .kebab-button {
+    position: absolute;
+    top: 13%;
+    right: 1%;
+    cursor: pointer;
+    width: 1rem;
+    height: 10%;
+    border: none;
+    background: none;
+    display: none;
+}
+
+.item-entries span {
+    display: block;
+    width: 0.25rem;
+    height: 0.25rem;
+    margin: 0.125rem;
+    background-color: #FF8E2B;
+    opacity: 1;
+    transform-origin: center;
+}
+
+.item-nav {
+    background-color: #FF8E2B;
+    z-index: 9000;
+    position: absolute;
+    top: 22%;
+    right: -22%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    display: none;
+}
+
+.item-entries .edit-button {
+    background: none;
+    border: none;
+    width: 4rem;
+    padding: .6rem .4rem .6rem .4rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.item-entries .edit-button:hover {
+    background-color: #FFB866;
+}
+
+/* **************************************************************************** */
+
+@media (max-width: 1250px) {
+    #background-image {
+        background-image: none;
+    }
+
+    .auth-menu {
+        position: relative;
+        padding: 0;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin-top: 8rem;
+    }
+
+    #menu-title {
+        margin-left: .6rem;
+    }
+    
+    #menu ul {
+        align-items: center;
+    }
+
+    #menu a {
+        font-size: 1rem;
+    }
+    
+    #nav-button {
+        padding: 1.43rem 1.5rem;
+    }
+
+    .menu-item-with-padding {
+        padding: 1.46rem 2rem;
+    }
+    
+    #menu img {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .item-list {
+        padding: 3rem 0 5rem 0;
+        margin: 3rem 1rem 0 1rem;
+    }
+
+    .item-entries {
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .item-entries li {
+        padding: 0;
+    }
+
+    .item-img {
+        width: 6rem;
+        height: 8rem;
+        padding-top: 0;
+    }
+
+    .item-entries .kebab-button {
+        display: block;
+        top: 2%;
+    }
+
+    .note-kebab-button {
+        display: block;
+    }
+
+    .send-info-section {
+        left: 10%;
+        width: 15rem;
+        height: 20rem;
+        padding: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    .send-info-section h2 {
+        font-size: 1rem;
+    }
+    
+    .send-info-form {
+        gap: 1rem;
+    }
+
+    .title-input {
+        font-size: 1rem;
+        width: 15rem;
+    }
+    
+    .form-buttons button {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1365px) and (max-width: 1366px) {
+    .send-info-section {
+        top: 15%;
+        left: 20%;
+    }
+}

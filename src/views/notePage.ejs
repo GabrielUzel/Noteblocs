@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleNote.css" type="text/css" media="all">
+    <title>NoteBlocs</title>
+</head>
+<body>
+    <nav id="menu">
+        <a id="menu-title" href="/"><h1>NoteBlocs</h1></a>
+        <ul>
+            <li>
+                <button id="nav-button" onclick="postFunction()">Salvar</button>
+            </li>
+        </ul>
+    </nav>
+    <div id="main-content">
+        <section id="text-field">
+            <textarea name="note-content" id="note-text-area" placeholder="Digite seu texto aqui"><%= note.content %></textarea>
+        </section>
+        <section id="saved-message">
+            <p>
+                Salvo!
+            </p>
+        </section>
+    </div>
+    <script src="/js/postFunction.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleHome.css" type="text/css" media="all">
+    <title>NoteBlocs</title>
+</head>
+
+<body>
+    <nav id="menu">
+        <a id="menu-title" href="/"><h1>NoteBlocs</h1></a>
+        <ul>
+            <% if(!user) { %>
+            <li>
+                <a class="menu-item-with-padding" href="/login">Entrar</a>
+            </li>
+            <% } else { %>
+            <li>
+                <button id="nav-button" title="Novo bloco">
+                    <img src="/img/plusIcon.png" alt="Imagem de adição no botão">
+                </button>
+            </li>
+            <li>
+                <a class="menu-item-with-padding" href="/logout">Sair</a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+    <section class="item-list">
+        <ul class="item-entries">
+            <% notebookList.forEach((item) => { %>
+                <li class="entrie">
+                    <a href="/notebook/?id=<%= item.id %>">
+                        <img class="item-img" src="/img/notebookImage<%=item.wallpaperId %>.jpg" alt="">
+                    </a>
+                    <p class="item-title"> <%= item.title %></p>
+                    <button class="kebab-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <nav class="item-nav">
+                        <button class="edit-item-button edit-button">Editar</button>
+                        <form id="deleteForm" action="/deletenotebook" method="POST">
+                            <input type="hidden" class="notebookId" name="id" value="<%= item.id %>">
+                            <button class="edit-button" type="submit">Excluir</button>
+                        </form>
+                    </nav>
+                    <div class="edit-section send-info-section">
+                        <h2> Editar caderno de anotações </h2>
+                        <form class="send-info-form" action="/editnotebook" method="POST">
+                            <input type="hidden" class="notebookId" name="id" value="<%= item.id %>">
+                            <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+                            <p>Selecione novo papel de parede: </p>
+                            <div class="wallpaper-list">
+                                <div>
+                                    <input id="radio1<%= notebookList.indexOf(item) %>" class="radio-button" type="radio" value="1" name="wallpaperId">
+                                    <label for="radio1<%= notebookList.indexOf(item) %>"><img class="wallpapers" src="/img/notebookImage1.jpg" alt=""></label>
+                                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                                </div>
+                                <div>
+                                    <input id="radio2<%= notebookList.indexOf(item) %>" class="radio-button" type="radio" value="2" name="wallpaperId">
+                                    <label for="radio2<%= notebookList.indexOf(item) %>"><img class="wallpapers" src="/img/notebookImage2.jpg" alt=""></label>
+                                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                                </div>
+                                <div>
+                                    <input id="radio3<%= notebookList.indexOf(item) %>" class="radio-button" type="radio" value="3" name="wallpaperId">
+                                    <label for="radio3<%= notebookList.indexOf(item) %>"><img class="wallpapers" src="/img/notebookImage3.jpg" alt=""></label>
+                                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                                </div>
+                                <div>
+                                    <input id="radio4<%= notebookList.indexOf(item) %>" class="radio-button" type="radio" value="4" name="wallpaperId">
+                                    <label for="radio4<%= notebookList.indexOf(item) %>"><img class="wallpapers" src="/img/notebookImage4.jpg" alt=""></label>
+                                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                                </div>
+                                <div>
+                                    <input id="radio5<%= notebookList.indexOf(item) %>" class="radio-button" type="radio" value="5" name="wallpaperId">
+                                    <label for="radio5<%= notebookList.indexOf(item) %>"><img class="wallpapers" src="/img/notebookImage5.jpg" alt=""></label>
+                                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                                </div>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="submit"><div class="underline-animation">Concluído</div></button>
+                                <button class="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
+    <section id="add-section" class="send-info-section">
+        <h1> Novo caderno de anotações </h1>
+        <form class="send-info-form" method="POST">
+            <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+            <p>Selecione o papel de parede: </p>
+            <div class="wallpaper-list">
+                <div>
+                    <input id="radio1" class="radio-button" type="radio" value="1" name="wallpaperId">
+                    <label for="radio1"><img class="wallpapers" src="/img/notebookImage1.jpg" alt=""></label>
+                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                </div>
+                <div>
+                    <input id="radio2" class="radio-button" type="radio" value="2" name="wallpaperId">
+                    <label for="radio2"><img class="wallpapers" src="/img/notebookImage2.jpg" alt=""></label>
+                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                </div>
+                <div>
+                    <input id="radio3" class="radio-button" type="radio" value="3" name="wallpaperId">
+                    <label for="radio3"><img class="wallpapers" src="/img/notebookImage3.jpg" alt=""></label>
+                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                </div>
+                <div>
+                    <input id="radio4" class="radio-button" type="radio" value="4" name="wallpaperId">
+                    <label for="radio4"><img class="wallpapers" src="/img/notebookImage4.jpg" alt=""></label>
+                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                </div>
+                <div>
+                    <input id="radio5" class="radio-button" type="radio" value="5" name="wallpaperId">
+                    <label for="radio5"><img class="wallpapers" src="/img/notebookImage5.jpg" alt=""></label>
+                    <img class="check-mark-img" src="/img/checkMark.png" alt="">
+                </div>
+            </div>
+            <div class="form-buttons">
+                <button type="submit"><div class="underline-animation">Criar</div></button>
+                <button class="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
+            </div>
+        </form>
+    </section>
+    <script src="/js/bundle.js"></script>
+</body>
+</html>

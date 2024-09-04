@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleNotebook.css" type="text/css" media="all">
+    <title>NoteBlocs</title>
+</head>
+<body>
+    <nav id="menu">
+        <a id="menu-title" href="/"><h1>NoteBlocs</h1></a>
+        <ul>
+            <li>
+                <button id="nav-button" title="Nova anotação">
+                    <img src="/img/plusIcon.png" alt="Imagem de adição no botão">
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <section class="item-list">
+        <ul class="item-entries">
+            <% notesList.forEach((item) => { %>
+                <li class="entrie">
+                    <a href="/note/?noteid=<%= item.id %>">
+                        <img class="note-img item-img" src="/img/noteImage.png" alt="">
+                    </a>
+                    <p class="item-title"> <%= item.title %> </p>
+                    <button class="kebab-button note-kebab-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>         
+                    <nav class="item-nav">
+                        <button class="edit-item-button edit-button">Editar</button>
+                        <form id="deleteForm" action="/deletenote" method="POST">
+                            <input type="hidden" id="noteId" name="id" value="<%= item.id %>">
+                            <button class="edit-button" type="submit">Excluir</button>
+                        </form>
+                    </nav>           
+                </li>
+                <div class="edit-section send-info-section">
+                    <h2> Editar anotação </h2>
+                    <form class="send-info-form" action="/editnote" method="POST">
+                        <input type="hidden" id="noteId" name="id" value="<%= item.id %>">
+                        <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+                        <div class="form-buttons">
+                            <button type="submit"><div class="underline-animation">Concluído</div></button>
+                            <button class="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
+                        </div>
+                    </form>
+                </div>
+            <% }) %>
+        </ul>
+    </section>
+    <section id="add-section" class="send-info-section">
+        <h1> Nova anotação </h1>
+        <form class="send-info-form" method="POST">
+            <input class="title-input" name="title" type="text" autocomplete="off" placeholder="Título" maxlength="29">
+            <div class="form-buttons">
+                <button type="submit"><div class="underline-animation">Criar</div></button>
+                <button class="closeFormButton" type="button"><div class="underline-animation">Cancelar</div></button>
+            </div>
+        </form>
+    </section>
+    <script src="/js/bundle.js"></script>
+</body>
+</html>

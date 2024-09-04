@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/styleSignup.css" type="text/css" media="all">
+    <title>NoteBlocs</title>
+</head>
+<body>
+    <button id="back-button" onclick="history.back()">&#8249;</button>
+
+    <section id="background-image">
+        <div class="auth-menu">
+            <h1>Cadastre-se</h1>
+            <form class="auth-form" action="/signup" method="POST">
+                <%- include('includes/errorMessages') %>
+                <input id="username" name="username" type="text" placeholder="Username" autocomplete="off">
+                <input id="email" name="email" type="text" placeholder="Email" autocomplete="off">
+                <div class="password-input-div">
+                    <input id="password" name="password" type="password" placeholder="Senha (8 a 16 caracteres, deve conter número)" autocomplete="off">
+                    <img id="password-toggle-img" src="img/eyeClose.png" alt="">
+                </div>
+                <div class="password-input-div">
+                    <input class="password-input" id="passwordConfirmation" name="passwordConfirmation" type="password" placeholder="Confirmar senha" autocomplete="off">
+                </div>
+                <button class="user-button" type="submit">Cadastre-se</button>
+            </form>
+        </div>
+    </section>
+    <script src="/js/passwordToggle.js"></script>
+</body>
+</html>
